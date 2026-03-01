@@ -7,7 +7,16 @@ const App = () => {
   const [customLogos, setCustomLogos] = useState({});
   const [faqOpen, setFaqOpen] = useState(null);
   const [pvnAssetVisible, setPvnAssetVisible] = useState(true);
-  const PVN_ASSET = '/logos/pvn-logo.png';
+  const PVN_ASSET = `${import.meta.env.BASE_URL}logos/pvn-logo.png`;
+
+  const makePlaceholder = (text) => {
+    const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='240' height='100'>
+<rect width='100%' height='100%' fill='#f2f4f7'/>
+<rect x='0' y='0' width='240' height='100' fill='none' stroke='#d0d5dd'/>
+<text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Inter, Arial, sans-serif' font-size='14' fill='#667085'>${text}</text>
+</svg>`;
+    return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
+  };
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -341,7 +350,7 @@ const App = () => {
             <div className="product-card">
               <div className="product-image-placeholder">
                 <img
-                  src="/products/plant.jpg"
+                  src={`${import.meta.env.BASE_URL}products/plant.jpg`}
                   alt="5kg Bucket"
                   loading="lazy"
                   decoding="async"
@@ -353,6 +362,7 @@ const App = () => {
                 />
               </div>
               <div className="product-details">
+                <span className="product-badge">5kg</span>
                 <h3>5kg Industrial Curd Bucket</h3>
                 <p>Perfect for retail dairy distribution. Sturdy handles and leak-proof lid.</p>
                 <ul>
@@ -366,7 +376,7 @@ const App = () => {
             <div className="product-card">
               <div className="product-image-placeholder">
                 <img
-                  src="/products/plant.jpg"
+                  src={`${import.meta.env.BASE_URL}products/plant.jpg`}
                   alt="10kg Bucket"
                   loading="lazy"
                   decoding="async"
@@ -378,6 +388,7 @@ const App = () => {
                 />
               </div>
               <div className="product-details">
+                <span className="product-badge">10kg</span>
                 <h3>10kg Industrial Curd Bucket</h3>
                 <p>Heavy-duty construction for bulk storage and transport.</p>
                 <ul>
@@ -385,6 +396,33 @@ const App = () => {
                   <li>Material: High Density Polyethylene (HDPE)</li>
                   <li>Usage: Industrial packing, Hotels, Canteens</li>
                 </ul>
+              </div>
+            </div>
+
+            <div className="product-card">
+              <div className="product-image-placeholder">
+                <img
+                  src={`${import.meta.env.BASE_URL}products/plant.jpg`}
+                  alt="20kg Bucket"
+                  loading="lazy"
+                  decoding="async"
+                  width="600"
+                  height="300"
+                  onError={(e) => {
+                    e.currentTarget.src = 'https://images.unsplash.com/photo-1605600659908-0ef719419d41?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80';
+                  }}
+                />
+              </div>
+              <div className="product-details">
+                <span className="product-badge">20kg</span>
+                <h3>20kg Industrial Curd Bucket</h3>
+                <p>High-impact HDPE with reinforced handle and lock-ring sealed lid for logistics.</p>
+                <ul>
+                  <li>Capacity: 20 Liters</li>
+                  <li>Material: High Impact HDPE</li>
+                  <li>Usage: Dairy logistics, canteens, bulk distribution</li>
+                </ul>
+                <a href="mailto:pvnindustries.tg@gmail.com?subject=20kg%20Curd%20Bucket%20Enquiry" className="btn secondary">Request Quote</a>
               </div>
             </div>
           </div>
@@ -450,8 +488,7 @@ const App = () => {
                           height="64"
                           className="client-logo-img"
                           onError={(e) => {
-                            const target = e.currentTarget;
-                            target.src = `https://via.placeholder.com/240x100.png?text=${encodeURIComponent(c.name)}`;
+                            e.currentTarget.src = makePlaceholder(c.name);
                           }}
                         />
                         <input
@@ -545,7 +582,7 @@ const App = () => {
         <div className="container">
           <div className="footer-brand">
             <img
-              src="/logos/pvn-logo.png"
+              src={`${import.meta.env.BASE_URL}logos/pvn-logo.png`}
               alt="PVN Industries logo"
               className="footer-logo-img"
               onError={(e) => {
