@@ -97,7 +97,9 @@ const App = () => {
             <button onClick={() => scrollToSection('home')}>Home</button>
             <button onClick={() => scrollToSection('about')}>About</button>
             <button onClick={() => scrollToSection('specs')}>Specs</button>
+            <button onClick={() => scrollToSection('technology')}>Technology</button>
             <button onClick={() => scrollToSection('products')}>Products</button>
+            <button onClick={() => scrollToSection('infrastructure')}>Gallery</button>
             <button onClick={() => scrollToSection('faq')}>FAQ</button>
             <button onClick={() => scrollToSection('clients')}>Clients</button>
             <button onClick={() => scrollToSection('contact')}>Contact</button>
@@ -113,7 +115,9 @@ const App = () => {
             <button onClick={() => scrollToSection('home')}>Home</button>
             <button onClick={() => scrollToSection('about')}>About</button>
             <button onClick={() => scrollToSection('specs')}>Specs</button>
+            <button onClick={() => scrollToSection('technology')}>Technology</button>
             <button onClick={() => scrollToSection('products')}>Products</button>
+            <button onClick={() => scrollToSection('infrastructure')}>Gallery</button>
             <button onClick={() => scrollToSection('faq')}>FAQ</button>
             <button onClick={() => scrollToSection('clients')}>Clients</button>
             <button onClick={() => scrollToSection('contact')}>Contact</button>
@@ -130,29 +134,6 @@ const App = () => {
           backgroundPosition: 'center 35%',
         }}
       >
-        <div className="hero-bg">
-          <picture>
-            <source
-              type="image/webp"
-              srcSet={[
-                `${import.meta.env.BASE_URL}hero/warehouse-1280.webp 1280w`,
-                `${import.meta.env.BASE_URL}hero/warehouse-1920.webp 1920w`,
-                `${import.meta.env.BASE_URL}hero/warehouse-2560.webp 2560w`,
-              ].join(', ')}
-              sizes="100vw"
-            />
-            <img
-              src={`${import.meta.env.BASE_URL}hero/warehouse.jpg`}
-              alt="Warehouse background"
-              loading="eager"
-              decoding="async"
-              fetchpriority="high"
-              onError={(e) => {
-                e.currentTarget.style.display = 'none';
-              }}
-            />
-          </picture>
-        </div>
         <div className="hero-overlay"></div>
         <div className="container hero-content">
           <div className="brand-overline">PVN Industries</div>
@@ -329,7 +310,48 @@ const App = () => {
         </div>
       </section>
 
-      
+      <section id="technology" className="section technology-section">
+        <div className="container">
+          <div className="section-header">
+            <h2>Technology & Capabilities</h2>
+            <p>Leveraging state-of-the-art technology and automated processes to deliver superior quality and consistency at scale.</p>
+          </div>
+          <div className="technology-grid">
+            {[
+              {
+                title: 'Dry-Offset Printing',
+                description: 'We utilize advanced 6-color dry-offset printing machines to apply vibrant, high-resolution graphics directly onto our buckets. This automated process ensures brand consistency and a premium finish for every product.',
+                image: `${import.meta.env.BASE_URL}infrastructure/photo_6143153756141457139_y.jpg`,
+              },
+              {
+                title: 'Injection Moulding',
+                description: 'Our facility is equipped with high-precision injection moulding machines that form the core of our manufacturing. This technology allows us to produce dimensionally accurate and structurally robust buckets and caps with high efficiency.',
+                image: `${import.meta.env.BASE_URL}infrastructure/photo_6143153756141457092_y.jpg`,
+              },
+              {
+                title: 'Automated Manufacturing',
+                description: 'From raw material handling to final product stacking, our production line incorporates automation to minimize human error and maximize output. This ensures a reliable supply chain for our clients.',
+                image: `${import.meta.env.BASE_URL}infrastructure/photo_6143153756141457095_y.jpg`,
+              },
+              {
+                title: 'Quality Control & Assurance',
+                description: 'Every stage of our process is monitored by a strict quality assurance protocol. We conduct rigorous testing for durability, leak-resistance, and print quality to guarantee that our products meet the highest standards.',
+                image: `${import.meta.env.BASE_URL}infrastructure/photo_6143153756141457140_y.jpg`,
+              },
+            ].map((tech, index) => (
+              <div key={index} className="tech-card">
+                <div className="tech-card-image-container">
+                  <img src={tech.image} alt={tech.title} className="tech-card-image" loading="lazy" decoding="async" />
+                </div>
+                <div className="tech-card-content">
+                  <h3>{tech.title}</h3>
+                  <p>{tech.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section id="products" className="section products-section">
         <div className="container">
@@ -399,6 +421,90 @@ const App = () => {
                   </div>
                   <a href="mailto:pvnindustries.tg@gmail.com?subject=Enquiry%20for%20${product.badge}%20Bucket" className="btn secondary">Request Quote</a>
                 </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="infrastructure" className="section infrastructure-section">
+          <div className="container">
+            <div className="section-header">
+              <h2>Our Facility in Action</h2>
+              <p>State-of-the-art machinery for consistent quality and large-scale production.</p>
+            </div>
+          <div className="media-grid">
+            {[
+              {
+                type: 'image',
+                src: `${import.meta.env.BASE_URL}infrastructure/new machine.jpg`,
+                alt: 'PVN Industries new machinery',
+              },
+              {
+                type: 'video',
+                src: `${import.meta.env.BASE_URL}infrastructure/WhatsApp Video 2026-02-28 at 12.44.20.mp4`,
+                alt: 'Factory machinery in operation',
+              },
+              {
+                type: 'image',
+                src: `${import.meta.env.BASE_URL}infrastructure/photo_6143153756141457090_y.jpg`,
+                alt: 'PVN Industries factory infrastructure',
+              },
+              {
+                type: 'image',
+                src: `${import.meta.env.BASE_URL}infrastructure/photo_6143153756141457092_y.jpg`,
+                alt: 'PVN Industries manufacturing process',
+              },
+              {
+                type: 'image',
+                src: `${import.meta.env.BASE_URL}infrastructure/photo_6143153756141457096_y.jpg`,
+                alt: 'Another view of the factory machinery',
+              },
+              {
+                type: 'image',
+                src: `${import.meta.env.BASE_URL}infrastructure/photo_6143153756141457098_y.jpg`,
+                alt: 'PVN Industries production line',
+              },
+              {
+                type: 'image',
+                src: `${import.meta.env.BASE_URL}infrastructure/photo_6143153756141457085_y.jpg`,
+                alt: 'Infrastructure image 1',
+              },
+              {
+                type: 'image',
+                src: `${import.meta.env.BASE_URL}infrastructure/photo_6143153756141457127_y.jpg`,
+                alt: 'Infrastructure image 2',
+              },
+              {
+                type: 'image',
+                src: `${import.meta.env.BASE_URL}infrastructure/photo_6143153756141457139_y.jpg`,
+                alt: 'Infrastructure image 3',
+              },
+              {
+                type: 'image',
+                src: `${import.meta.env.BASE_URL}infrastructure/photo_6143153756141457140_y.jpg`,
+                alt: 'Infrastructure image 4',
+              },
+            ].map((media, index) => (
+              <div key={index} className="media-item">
+                {media.type === 'video' ? (
+                  <video
+                    src={media.src}
+                    controls
+                    className="media-content"
+                    loading="lazy"
+                  >
+                    Your browser does not support the video tag.
+                  </video>
+                ) : (
+                  <img
+                    src={media.src}
+                    alt={media.alt}
+                    className="media-content"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                )}
               </div>
             ))}
           </div>
