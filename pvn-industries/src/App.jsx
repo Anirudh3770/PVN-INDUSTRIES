@@ -121,7 +121,38 @@ const App = () => {
         )}
       </nav>
 
-      <header id="home" className="hero">
+      <header
+        id="home"
+        className="hero"
+        style={{
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${import.meta.env.BASE_URL}hero/warehouse.jpg)`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center 35%',
+        }}
+      >
+        <div className="hero-bg">
+          <picture>
+            <source
+              type="image/webp"
+              srcSet={[
+                `${import.meta.env.BASE_URL}hero/warehouse-1280.webp 1280w`,
+                `${import.meta.env.BASE_URL}hero/warehouse-1920.webp 1920w`,
+                `${import.meta.env.BASE_URL}hero/warehouse-2560.webp 2560w`,
+              ].join(', ')}
+              sizes="100vw"
+            />
+            <img
+              src={`${import.meta.env.BASE_URL}hero/warehouse.jpg`}
+              alt="Warehouse background"
+              loading="eager"
+              decoding="async"
+              fetchpriority="high"
+              onError={(e) => {
+                e.currentTarget.style.display = 'none';
+              }}
+            />
+          </picture>
+        </div>
         <div className="hero-overlay"></div>
         <div className="container hero-content">
           <div className="brand-overline">PVN Industries</div>
@@ -298,46 +329,7 @@ const App = () => {
         </div>
       </section>
 
-      <section id="faq" className="section faq-section">
-        <div className="container">
-          <div className="section-header">
-            <h2>FAQs</h2>
-            <p>Answers to common questions from dairy partners</p>
-          </div>
-          <div className="faq-list">
-            {[
-              {
-                q: 'Are your buckets food-grade and safe for curd?',
-                a: 'Yes. We use virgin PP/HDPE resins and dairy-safe inks. Our process follows hygiene protocols and ink migration safety.',
-              },
-              {
-                q: 'Do lids have tamper evidence?',
-                a: 'Yes. We offer snap-fit and ring-lock tamper-evident lids across capacities for product integrity.',
-              },
-              {
-                q: 'Can you print my brand and artwork?',
-                a: 'Absolutely. We support high-definition Dry Offset printing up to 6 colors with 360° coverage.',
-              },
-              {
-                q: 'What’s the minimum order quantity (MOQ)?',
-                a: 'MOQs vary by size and printing. Share your requirement and we will propose an optimized MOQ.',
-              },
-              {
-                q: 'What are the lead times and delivery options?',
-                a: 'Standard lead times are 7–15 days based on quantity and artwork approval. Pan-India delivery supported.',
-              },
-            ].map((item, idx) => (
-              <div key={item.q} className={`faq-item ${faqOpen === idx ? 'open' : ''}`}>
-                <button className="faq-q" onClick={() => setFaqOpen(faqOpen === idx ? null : idx)}>
-                  <span>{item.q}</span>
-                  <span>{faqOpen === idx ? '–' : '+'}</span>
-                </button>
-                {faqOpen === idx && <div className="faq-a">{item.a}</div>}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
       <section id="products" className="section products-section">
         <div className="container">
@@ -347,84 +339,66 @@ const App = () => {
           </div>
 
           <div className="products-grid">
-            <div className="product-card">
-              <div className="product-image-placeholder">
-                <img
-                  src={`${import.meta.env.BASE_URL}products/plant.jpg`}
-                  alt="5kg Bucket"
-                  loading="lazy"
-                  decoding="async"
-                  width="600"
-                  height="300"
-                  onError={(e) => {
-                    e.currentTarget.src = 'https://images.unsplash.com/photo-1616400619175-5beda3a17896?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80';
-                  }}
-                />
+            {[
+              {
+                badge: '5kg',
+                name: '5kg Industrial Curd Bucket',
+                desc: 'Perfect for retail dairy distribution. Sturdy handles and leak-proof lid.',
+                features: [
+                  'Capacity: 5 Liters',
+                  'Material: Polypropylene (PP)',
+                  'Usage: Curd, Lassi, Butter Milk',
+                ],
+                img: `${import.meta.env.BASE_URL}products/curd-buckets.jpg`,
+              },
+              {
+                badge: '10kg',
+                name: '10kg Industrial Curd Bucket',
+                desc: 'Heavy-duty construction for bulk storage and transport in HORECA.',
+                features: [
+                  'Capacity: 10 Liters',
+                  'Material: High Density Polyethylene (HDPE)',
+                  'Usage: Industrial packing, Hotels, Canteens',
+                ],
+                img: 'https://images.unsplash.com/photo-1621072252373-b7fee76a7949?auto=format&fit=crop&w=800&q=80',
+              },
+              {
+                badge: '20kg',
+                name: '20kg Industrial Curd Bucket',
+                desc: 'High-impact HDPE with reinforced handle and lock-ring sealed lid for logistics.',
+                features: [
+                  'Capacity: 20 Liters',
+                  'Material: High Impact HDPE',
+                  'Usage: Dairy logistics, canteens, bulk distribution',
+                ],
+                img: 'https://images.unsplash.com/photo-1560789339-43521a36a03c?auto=format&fit=crop&w=800&q=80',
+              },
+            ].map((product) => (
+              <div key={product.name} className="product-card">
+                <div className="product-image-placeholder">
+                  <img
+                    src={product.img}
+                    alt={product.name}
+                    className="product-image"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div className="product-details">
+                  <div>
+                    <span className="product-badge">{product.badge}</span>
+                    <h3>{product.name}</h3>
+                    <p>{product.desc}</p>
+                    <ul>
+                      {product.features.map((feature) => (
+                        <li key={feature}>{feature}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <a href="mailto:pvnindustries.tg@gmail.com?subject=Enquiry%20for%20${product.badge}%20Bucket" className="btn secondary">Request Quote</a>
+                </div>
               </div>
-              <div className="product-details">
-                <span className="product-badge">5kg</span>
-                <h3>5kg Industrial Curd Bucket</h3>
-                <p>Perfect for retail dairy distribution. Sturdy handles and leak-proof lid.</p>
-                <ul>
-                  <li>Capacity: 5 Liters</li>
-                  <li>Material: Polypropylene (PP)</li>
-                  <li>Usage: Curd, Lassi, Butter Milk</li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="product-card">
-              <div className="product-image-placeholder">
-                <img
-                  src={`${import.meta.env.BASE_URL}products/plant.jpg`}
-                  alt="10kg Bucket"
-                  loading="lazy"
-                  decoding="async"
-                  width="600"
-                  height="300"
-                  onError={(e) => {
-                    e.currentTarget.src = 'https://images.unsplash.com/photo-1605600659908-0ef719419d41?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80';
-                  }}
-                />
-              </div>
-              <div className="product-details">
-                <span className="product-badge">10kg</span>
-                <h3>10kg Industrial Curd Bucket</h3>
-                <p>Heavy-duty construction for bulk storage and transport.</p>
-                <ul>
-                  <li>Capacity: 10 Liters</li>
-                  <li>Material: High Density Polyethylene (HDPE)</li>
-                  <li>Usage: Industrial packing, Hotels, Canteens</li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="product-card">
-              <div className="product-image-placeholder">
-                <img
-                  src={`${import.meta.env.BASE_URL}products/plant.jpg`}
-                  alt="20kg Bucket"
-                  loading="lazy"
-                  decoding="async"
-                  width="600"
-                  height="300"
-                  onError={(e) => {
-                    e.currentTarget.src = 'https://images.unsplash.com/photo-1605600659908-0ef719419d41?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80';
-                  }}
-                />
-              </div>
-              <div className="product-details">
-                <span className="product-badge">20kg</span>
-                <h3>20kg Industrial Curd Bucket</h3>
-                <p>High-impact HDPE with reinforced handle and lock-ring sealed lid for logistics.</p>
-                <ul>
-                  <li>Capacity: 20 Liters</li>
-                  <li>Material: High Impact HDPE</li>
-                  <li>Usage: Dairy logistics, canteens, bulk distribution</li>
-                </ul>
-                <a href="mailto:pvnindustries.tg@gmail.com?subject=20kg%20Curd%20Bucket%20Enquiry" className="btn secondary">Request Quote</a>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -506,6 +480,47 @@ const App = () => {
               </div>
             );
           })()}
+        </div>
+      </section>
+      
+      <section id="faq" className="section faq-section">
+        <div className="container">
+          <div className="section-header">
+            <h2>FAQs</h2>
+            <p>Answers to common questions from dairy partners</p>
+          </div>
+          <div className="faq-list">
+            {[
+              {
+                q: 'Are your buckets food-grade and safe for curd?',
+                a: 'Yes. We use virgin PP/HDPE resins and dairy-safe inks. Our process follows hygiene protocols and ink migration safety.',
+              },
+              {
+                q: 'Do lids have tamper evidence?',
+                a: 'Yes. We offer snap-fit and ring-lock tamper-evident lids across capacities for product integrity.',
+              },
+              {
+                q: 'Can you print my brand and artwork?',
+                a: 'Absolutely. We support high-definition Dry Offset printing up to 6 colors with 360° coverage.',
+              },
+              {
+                q: 'What’s the minimum order quantity (MOQ)?',
+                a: 'MOQs vary by size and printing. Share your requirement and we will propose an optimized MOQ.',
+              },
+              {
+                q: 'What are the lead times and delivery options?',
+                a: 'Standard lead times are 7–15 days based on quantity and artwork approval. Pan-India delivery supported.',
+              },
+            ].map((item, idx) => (
+              <div key={item.q} className={`faq-item ${faqOpen === idx ? 'open' : ''}`}>
+                <button className="faq-q" onClick={() => setFaqOpen(faqOpen === idx ? null : idx)}>
+                  <span>{item.q}</span>
+                  <span>{faqOpen === idx ? '–' : '+'}</span>
+                </button>
+                {faqOpen === idx && <div className="faq-a">{item.a}</div>}
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
