@@ -90,12 +90,12 @@ const App = () => {
             ) : (
               <Package className="logo-icon" />
             )}
-            <span className="brand-text">PVN <span className="highlight">Industries</span></span>
           </div>
           
           <div className="desktop-menu">
             <button onClick={() => scrollToSection('home')}>Home</button>
             <button onClick={() => scrollToSection('about')}>About</button>
+            <button onClick={() => scrollToSection('journey')}>Our Journey</button>
             <button onClick={() => scrollToSection('specs')}>Specs</button>
             <button onClick={() => scrollToSection('technology')}>Technology</button>
             <button onClick={() => scrollToSection('products')}>Products</button>
@@ -114,6 +114,7 @@ const App = () => {
           <div className="mobile-menu">
             <button onClick={() => scrollToSection('home')}>Home</button>
             <button onClick={() => scrollToSection('about')}>About</button>
+            <button onClick={() => scrollToSection('journey')}>Our Journey</button>
             <button onClick={() => scrollToSection('specs')}>Specs</button>
             <button onClick={() => scrollToSection('technology')}>Technology</button>
             <button onClick={() => scrollToSection('products')}>Products</button>
@@ -169,34 +170,48 @@ const App = () => {
         </div>
       </header>
 
-      <section id="about" className="section about-section">
+      <section id="journey" className="section journey-section">
         <div className="container">
           <div className="section-header">
-            <h2>Why Choose PVN Industries?</h2>
-            <p>Excellence in Manufacturing & Branding</p>
+            <h2 className="section-title">A Legacy of Growth & Partnership</h2>
+            <p className="section-subtitle">
+              From a focused raw material supplier to a comprehensive manufacturing partner, our history is one of steady growth and innovation.
+            </p>
           </div>
-          
-          <div className="features-grid">
-            <div className="feature-card">
-              <Printer size={48} color="#2563eb" />
-              <h3>Dry Offset Printing</h3>
-              <p>We offer high-quality dry offset printing directly on buckets for vibrant, durable branding suitable for industrial use.</p>
-            </div>
-            <div className="feature-card">
-              <CheckCircle size={48} color="#2563eb" />
-              <h3>Food-Grade Material</h3>
-              <p>Our buckets are manufactured using 100% virgin food-grade plastic ensuring hygiene and safety for dairy products.</p>
-            </div>
-            <div className="feature-card">
-              <Package size={48} color="#2563eb" />
-              <h3>Bulk Supply</h3>
-              <p>Equipped to handle large industrial orders with timely delivery across Telangana and India.</p>
-            </div>
+          <div className="timeline">
+            {[
+              {
+                year: '2018',
+                title: 'Foundation of Business',
+                description: <>The business journey began with the establishment of Wins Industry, founded by <strong className="highlight-name">Mrs. Kadire Karuna</strong>. The company initially focused on the production and supply of plastic raw materials for manufacturing applications.</>,
+              },
+              {
+                year: '2022',
+                title: 'Establishment of PVN Industries',
+                description: 'Building on the experience gained in the plastic sector, PVN Industries was officially established to manufacture plastic household products such as buckets and utility containers, serving distributors and commercial buyers.',
+              },
+              {
+                year: '2025',
+                title: 'Expansion of Management and Operations',
+                description: <><strong className="highlight-name">Mr. Kadire Vincent Tagore</strong> assumed operational leadership as Managing Director, focusing on strengthening production capacity, improving operational efficiency, and expanding market reach.</>,
+              },
+              {
+                year: 'Present',
+                title: 'Growing Manufacturing Operations',
+                description: 'Today, PVN Industries continues to expand its manufacturing and printing capabilities while building strong partnerships with distributors, dairy companies, and industrial clients.',
+              },
+            ].map((item, index) => (
+              <div key={index} className="timeline-item">
+                <div className="timeline-content">
+                  <span className="timeline-year">{item.year}</span>
+                  <h3 className="timeline-title">{item.title}</h3>
+                  <p className="timeline-description">{item.description}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
-
-      
 
       <section id="specs" className="section specs-section">
         <div className="container">
@@ -427,6 +442,8 @@ const App = () => {
         </div>
       </section>
 
+
+
       <section id="infrastructure" className="section infrastructure-section">
           <div className="container">
             <div className="section-header">
@@ -591,6 +608,33 @@ const App = () => {
         </div>
       </section>
       
+      <section id="about" className="section about-section">
+        <div className="container">
+          <div className="section-header">
+            <h2>Why Choose PVN Industries?</h2>
+            <p>Excellence in Manufacturing & Branding</p>
+          </div>
+          
+          <div className="features-grid">
+            <div className="feature-card">
+              <Printer size={48} color="#2563eb" />
+              <h3>Dry Offset Printing</h3>
+              <p>We offer high-quality dry offset printing directly on buckets for vibrant, durable branding suitable for industrial use.</p>
+            </div>
+            <div className="feature-card">
+              <CheckCircle size={48} color="#2563eb" />
+              <h3>Food-Grade Material</h3>
+              <p>Our buckets are manufactured using 100% virgin food-grade plastic ensuring hygiene and safety for dairy products.</p>
+            </div>
+            <div className="feature-card">
+              <Package size={48} color="#2563eb" />
+              <h3>Bulk Supply</h3>
+              <p>Equipped to handle large industrial orders with timely delivery across Telangana and India.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="faq" className="section faq-section">
         <div className="container">
           <div className="section-header">
@@ -713,17 +757,13 @@ const App = () => {
               }}
             />
           </div>
-          <p>&copy; {new Date().getFullYear()} PVN Industries. All Rights Reserved.</p>
-          <p className="small">Plastic Curd Bucket Manufacturers | Dry Offset Printing</p>
+          <div className="footer-text">
+            <p>&copy; {new Date().getFullYear()} PVN Industries. All Rights Reserved.</p>
+            <p className="small">Plastic Curd Bucket Manufacturers | Dry Offset Printing</p>
+          </div>
           <div className="footer-social">
-            <a href="https://www.facebook.com/pvnindustries" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-              <Facebook size={20} />
-            </a>
             <a href="https://www.instagram.com/pvnindustries" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <Instagram size={20} />
-            </a>
-            <a href="https://www.linkedin.com/company/pvn-industries" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              <Linkedin size={20} />
             </a>
             <a href="https://www.youtube.com/@pvnindustries" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
               <Youtube size={20} />
