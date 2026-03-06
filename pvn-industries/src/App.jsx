@@ -360,7 +360,8 @@ const App = () => {
                   'Material: High Density Polyethylene (HDPE)',
                   'Usage: Industrial packing, Hotels, Canteens',
                 ],
-                img: 'https://images.unsplash.com/photo-1621072252373-b7fee76a7949?auto=format&fit=crop&w=800&q=80',
+                // img: 'https://images.unsplash.com/photo-1621072252373-b7fee76a7949?auto=format&fit=crop&w=800&q=80',
+                img: `${import.meta.env.BASE_URL}products/curd-buckets.jpg`,
               },
               {
                 badge: '20kg',
@@ -371,7 +372,8 @@ const App = () => {
                   'Material: High Impact HDPE',
                   'Usage: Dairy logistics, canteens, bulk distribution',
                 ],
-                img: 'https://images.unsplash.com/photo-1560789339-43521a36a03c?auto=format&fit=crop&w=800&q=80',
+                // img: 'https://images.unsplash.com/photo-1560789339-43521a36a03c?auto=format&fit=crop&w=800&q=80',
+                img: `${import.meta.env.BASE_URL}products/curd-buckets.jpg`,
               },
             ].map((product) => (
               <div key={product.name} className="product-card">
