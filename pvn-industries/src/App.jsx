@@ -1,11 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Phone, Mail, MapPin, Printer, CheckCircle, Package, Facebook, Instagram, Linkedin, Youtube } from 'lucide-react';
 import './App.css';
+import { Menu, X, Instagram, Youtube } from 'lucide-react';
+import Hero from './components/Hero';
+import Journey from './components/Journey';
+import Specs from './components/Specs';
+import Products from './components/Products';
+import PrintingServices from './components/PrintingServices';
+import Branding from './components/Branding';
+import Technology from './components/Technology';
+import Clients from './components/Clients';
+import About from './components/About';
+import FAQ from './components/FAQ';
+import Contact from './components/Contact';
+import Infrastructure from './components/Infrastructure';
+import CTA from './components/CTA';
+import Footer from './components/Footer';
+
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [customLogos, setCustomLogos] = useState({});
-  const [faqOpen, setFaqOpen] = useState(null);
   const [pvnAssetVisible, setPvnAssetVisible] = useState(true);
   const PVN_ASSET = `${import.meta.env.BASE_URL}logos/pvn-logo.png`;
 
@@ -94,11 +108,11 @@ const App = () => {
           
           <div className="desktop-menu">
             <button onClick={() => scrollToSection('home')}>Home</button>
-            <button onClick={() => scrollToSection('about')}>About</button>
+            <button onClick={() => scrollToSection('products')}>Products</button>
             <button onClick={() => scrollToSection('journey')}>Our Journey</button>
             <button onClick={() => scrollToSection('specs')}>Specs</button>
             <button onClick={() => scrollToSection('technology')}>Technology</button>
-            <button onClick={() => scrollToSection('products')}>Products</button>
+            <button onClick={() => scrollToSection('about')}>About</button>
             <button onClick={() => scrollToSection('infrastructure')}>Gallery</button>
             <button onClick={() => scrollToSection('faq')}>FAQ</button>
             <button onClick={() => scrollToSection('clients')}>Clients</button>
@@ -126,651 +140,40 @@ const App = () => {
         )}
       </nav>
 
-      <header
-        id="home"
-        className="hero"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${import.meta.env.BASE_URL}hero/warehouse.jpg)`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center 35%',
-        }}
-      >
-        <div className="hero-overlay"></div>
-        <div className="container hero-content">
-          <div className="brand-overline">PVN Industries</div>
-          <h1>Food‑Grade <span className="text-yellow">Curd Buckets</span> For Dairy Brands</h1>
-          <p>Durable PP/HDPE containers with tamper‑evident lids and high‑definition Dry Offset printing for strong shelf impact.</p>
-          
-          <div className="hero-badges">
-            <div className="hero-badge"><CheckCircle size={18} /> Food‑Grade Materials</div>
-            <div className="hero-badge"><Printer size={18} /> Dry Offset up to 6 Colors</div>
-            <div className="hero-badge"><Package size={18} /> 5L • 10L • 20L</div>
-          </div>
+      <Hero scrollToSection={scrollToSection} />
 
-          <div className="hero-actions">
-            <button className="btn" onClick={() => scrollToSection('products')}>Explore Buckets</button>
-            <a href="tel:+918501905917" className="btn secondary">Call Sales</a>
-            <a href="mailto:pvnindustries.tg@gmail.com?subject=PVN%20Curd%20Bucket%20Enquiry" className="btn secondary">Get Price List</a>
-          </div>
+      <Journey />
 
-          <div className="hero-stats">
-            <div className="hero-stat">
-              <div className="hero-stat-num">5L</div>
-              <div className="hero-stat-label">Retail Packs</div>
-            </div>
-            <div className="hero-stat">
-              <div className="hero-stat-num">10L</div>
-              <div className="hero-stat-label">HORECA</div>
-            </div>
-            <div className="hero-stat">
-              <div className="hero-stat-num">20L</div>
-              <div className="hero-stat-label">Bulk Logistics</div>
-            </div>
-          </div>
-        </div>
-      </header>
+      <Specs />
 
-      <section id="journey" className="section journey-section">
-        <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">A Legacy of Growth & Partnership</h2>
-            <p className="section-subtitle">
-              From a focused raw material supplier to a comprehensive manufacturing partner, our history is one of steady growth and innovation.
-            </p>
-          </div>
-          <div className="timeline">
-            {[
-              {
-                year: '2018',
-                title: 'Foundation of Business',
-                description: <>The business journey began with the establishment of Wins Industry, founded by <strong className="highlight-name">Mrs. Kadire Karuna</strong>. The company initially focused on the production and supply of plastic raw materials for manufacturing applications.</>,
-              },
-              {
-                year: '2022',
-                title: 'Establishment of PVN Industries',
-                description: 'Building on the experience gained in the plastic sector, PVN Industries was officially established to manufacture plastic household products such as buckets and utility containers, serving distributors and commercial buyers.',
-              },
-              {
-                year: '2025',
-                title: 'Expansion of Management and Operations',
-                description: <><strong className="highlight-name">Mr. Kadire Vincent Tagore</strong> assumed operational leadership as Managing Director, focusing on strengthening production capacity, improving operational efficiency, and expanding market reach.</>,
-              },
-              {
-                year: 'Present',
-                title: 'Growing Manufacturing Operations',
-                description: 'Today, PVN Industries continues to expand its manufacturing and printing capabilities while building strong partnerships with distributors, dairy companies, and industrial clients.',
-              },
-            ].map((item, index) => (
-              <div key={index} className="timeline-item">
-                <div className="timeline-content">
-                  <span className="timeline-year">{item.year}</span>
-                  <h3 className="timeline-title">{item.title}</h3>
-                  <p className="timeline-description">{item.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <div id="products">
+        <Products />
+      </div>
 
-      <section id="specs" className="section specs-section">
-        <div className="container">
-          <div className="section-header">
-            <h2>Technical Specifications</h2>
-            <p>Built for dairy hygiene, strength and brand impact</p>
-          </div>
-          <div className="specs-cards">
-            {[
-              {
-                title: '5L Curd Bucket',
-                capacity: '5L',
-                tags: ['Food-Grade', 'Tamper Lid'],
-                items: [
-                  'Material: PP (Food-Grade, BPA-free)',
-                  'Lid: Snap-fit, tamper-evident',
-                  'Handle: Sturdy plastic',
-                  'Printing: Dry Offset up to 6 colors',
-                  'Use: Curd, Lassi, Buttermilk',
-                ],
-              },
-              {
-                title: '10L Curd Bucket',
-                capacity: '10L',
-                tags: ['Food-Grade', 'HORECA'],
-                items: [
-                  'Material: HDPE/PP (Food-Grade)',
-                  'Lid: Tamper-evident seal',
-                  'Handle: Plastic/Metal options',
-                  'Printing: 360° wrap branding',
-                  'Use: Bulk packs, HORECA',
-                ],
-              },
-              {
-                title: '20L Curd Bucket',
-                capacity: '20L',
-                tags: ['Heavy Duty', 'Logistics'],
-                items: [
-                  'Material: HDPE (High impact)',
-                  'Lid: Lock-ring with seal',
-                  'Handle: Metal reinforced',
-                  'Printing: Large format branding',
-                  'Use: Dairy logistics, canteens',
-                ],
-              },
-            ].map((card) => (
-              <div key={card.title} className="spec-card">
-                <div className="spec-header">
-                  <div className="spec-title">{card.title}</div>
-                  <div className="spec-chips">
-                    {card.tags.map((t) => (
-                      <span key={t} className="chip">{t}</span>
-                    ))}
-                    <span className="chip capacity">{card.capacity}</span>
-                  </div>
-                </div>
-                <ul className="spec-list">
-                  {card.items.map((it) => (
-                    <li key={it}>{it}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
+      <Branding />
 
-          <div className="badges-row">
-            <div className="badge"><CheckCircle size={18} /> Food-Grade Plastics</div>
-            <div className="badge"><CheckCircle size={18} /> Tamper-Evident Lids</div>
-            <div className="badge"><CheckCircle size={18} /> ISO-Guided Processes</div>
-            <div className="badge"><CheckCircle size={18} /> Ink Migration Safe</div>
-          </div>
-        </div>
-      </section>
+      <Technology />
 
-      <section className="section printing-section">
-        <div className="container">
-          <div className="section-header">
-            <h2>Branding & Printing</h2>
-            <p>High-definition Dry Offset printing for maximum shelf appeal</p>
-          </div>
-          <div className="printing-grid">
-            <div className="printing-card">
-              <Printer size={40} color="#2563eb" />
-              <h3>Up to 6 Colors</h3>
-              <p>Vibrant, consistent color reproduction with sharp text and graphics.</p>
-            </div>
-            <div className="printing-card">
-              <CheckCircle size={40} color="#2563eb" />
-              <h3>360° Coverage</h3>
-              <p>Wrap-around artwork for powerful brand visibility and recall.</p>
-            </div>
-            <div className="printing-card">
-              <CheckCircle size={40} color="#2563eb" />
-              <h3>Food-Safe Inks</h3>
-              <p>Low-odor, migration-safe inks suitable for dairy applications.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PrintingServices />
 
-      <section className="cta-band">
-        <div className="container cta-inner">
-          <div className="cta-text">
-            <h3>Need Custom Sizes, Colors or Artwork?</h3>
-            <p>Share your requirements and get a tailored quote within 24 hours.</p>
-          </div>
-          <div className="cta-actions">
-            <a href="tel:+918501905917" className="btn">Call Now</a>
-            <a href="mailto:pvnindustries.tg@gmail.com?subject=PVN%20Curd%20Bucket%20Enquiry" className="btn secondary">Email Us</a>
-          </div>
-        </div>
-      </section>
+      <Infrastructure />
 
-      <section id="technology" className="section technology-section">
-        <div className="container">
-          <div className="section-header">
-            <h2>Technology & Capabilities</h2>
-            <p>Leveraging state-of-the-art technology and automated processes to deliver superior quality and consistency at scale.</p>
-          </div>
-          <div className="technology-grid">
-            {[
-              {
-                title: 'Dry-Offset Printing',
-                description: 'We utilize advanced 6-color dry-offset printing machines to apply vibrant, high-resolution graphics directly onto our buckets. This automated process ensures brand consistency and a premium finish for every product.',
-                image: `${import.meta.env.BASE_URL}infrastructure/photo_6143153756141457139_y.jpg`,
-              },
-              {
-                title: 'Injection Moulding',
-                description: 'Our facility is equipped with high-precision injection moulding machines that form the core of our manufacturing. This technology allows us to produce dimensionally accurate and structurally robust buckets and caps with high efficiency.',
-                image: `${import.meta.env.BASE_URL}infrastructure/photo_6143153756141457092_y.jpg`,
-              },
-              {
-                title: 'Automated Manufacturing',
-                description: 'From raw material handling to final product stacking, our production line incorporates automation to minimize human error and maximize output. This ensures a reliable supply chain for our clients.',
-                image: `${import.meta.env.BASE_URL}infrastructure/photo_6143153756141457095_y.jpg`,
-              },
-              {
-                title: 'Quality Control & Assurance',
-                description: 'Every stage of our process is monitored by a strict quality assurance protocol. We conduct rigorous testing for durability, leak-resistance, and print quality to guarantee that our products meet the highest standards.',
-                image: `${import.meta.env.BASE_URL}infrastructure/photo_6143153756141457140_y.jpg`,
-              },
-            ].map((tech, index) => (
-              <div key={index} className="tech-card">
-                <div className="tech-card-image-container">
-                  <img src={tech.image} alt={tech.title} className="tech-card-image" loading="lazy" decoding="async" />
-                </div>
-                <div className="tech-card-content">
-                  <h3>{tech.title}</h3>
-                  <p>{tech.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <CTA scrollToSection={scrollToSection} />
 
-      <section id="products" className="section products-section">
-        <div className="container">
-          <div className="section-header">
-            <h2>Our Products</h2>
-            <p>Available in various sizes for Industrial and Commercial use</p>
-          </div>
+      <About />
 
-          <div className="products-grid">
-            {[
-              {
-                badge: '5kg',
-                name: '5kg Industrial Curd Bucket',
-                desc: 'Perfect for retail dairy distribution. Sturdy handles and leak-proof lid.',
-                features: [
-                  'Capacity: 5 Liters',
-                  'Material: Polypropylene (PP)',
-                  'Usage: Curd, Lassi, Butter Milk',
-                ],
-                img: `${import.meta.env.BASE_URL}products/curd-buckets.jpg`,
-              },
-              {
-                badge: '10kg',
-                name: '10kg Industrial Curd Bucket',
-                desc: 'Heavy-duty construction for bulk storage and transport in HORECA.',
-                features: [
-                  'Capacity: 10 Liters',
-                  'Material: High Density Polyethylene (HDPE)',
-                  'Usage: Industrial packing, Hotels, Canteens',
-                ],
-                // img: 'https://images.unsplash.com/photo-1621072252373-b7fee76a7949?auto=format&fit=crop&w=800&q=80',
-                img: `${import.meta.env.BASE_URL}products/curd-buckets.jpg`,
-              },
-              {
-                badge: '20kg',
-                name: '20kg Industrial Curd Bucket',
-                desc: 'High-impact HDPE with reinforced handle and lock-ring sealed lid for logistics.',
-                features: [
-                  'Capacity: 20 Liters',
-                  'Material: High Impact HDPE',
-                  'Usage: Dairy logistics, canteens, bulk distribution',
-                ],
-                // img: 'https://images.unsplash.com/photo-1560789339-43521a36a03c?auto=format&fit=crop&w=800&q=80',
-                img: `${import.meta.env.BASE_URL}products/curd-buckets.jpg`,
-              },
-            ].map((product) => (
-              <div key={product.name} className="product-card">
-                <div className="product-image-placeholder">
-                  <img
-                    src={product.img}
-                    alt={product.name}
-                    className="product-image"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-                <div className="product-details">
-                  <div>
-                    <span className="product-badge">{product.badge}</span>
-                    <h3>{product.name}</h3>
-                    <p>{product.desc}</p>
-                    <ul>
-                      {product.features.map((feature) => (
-                        <li key={feature}>{feature}</li>
-                      ))}
-                    </ul>
-                  </div>
-                  <a href="mailto:pvnindustries.tg@gmail.com?subject=Enquiry%20for%20${product.badge}%20Bucket" className="btn secondary">Request Quote</a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-
-
-      <section id="infrastructure" className="section infrastructure-section">
-          <div className="container">
-            <div className="section-header">
-              <h2>Our Facility in Action</h2>
-              <p>State-of-the-art machinery for consistent quality and large-scale production.</p>
-            </div>
-          <div className="media-grid">
-            {[
-              {
-                type: 'image',
-                src: `${import.meta.env.BASE_URL}infrastructure/new machine.jpg`,
-                alt: 'PVN Industries new machinery',
-              },
-              {
-                type: 'video',
-                src: `${import.meta.env.BASE_URL}infrastructure/WhatsApp Video 2026-02-28 at 12.44.20.mp4`,
-                alt: 'Factory machinery in operation',
-              },
-              {
-                type: 'image',
-                src: `${import.meta.env.BASE_URL}infrastructure/photo_6143153756141457090_y.jpg`,
-                alt: 'PVN Industries factory infrastructure',
-              },
-              {
-                type: 'image',
-                src: `${import.meta.env.BASE_URL}infrastructure/photo_6143153756141457092_y.jpg`,
-                alt: 'PVN Industries manufacturing process',
-              },
-              {
-                type: 'image',
-                src: `${import.meta.env.BASE_URL}infrastructure/photo_6143153756141457096_y.jpg`,
-                alt: 'Another view of the factory machinery',
-              },
-              {
-                type: 'image',
-                src: `${import.meta.env.BASE_URL}infrastructure/photo_6143153756141457098_y.jpg`,
-                alt: 'PVN Industries production line',
-              },
-              {
-                type: 'image',
-                src: `${import.meta.env.BASE_URL}infrastructure/photo_6143153756141457085_y.jpg`,
-                alt: 'Infrastructure image 1',
-              },
-              {
-                type: 'image',
-                src: `${import.meta.env.BASE_URL}infrastructure/photo_6143153756141457127_y.jpg`,
-                alt: 'Infrastructure image 2',
-              },
-              {
-                type: 'image',
-                src: `${import.meta.env.BASE_URL}infrastructure/photo_6143153756141457139_y.jpg`,
-                alt: 'Infrastructure image 3',
-              },
-              {
-                type: 'image',
-                src: `${import.meta.env.BASE_URL}infrastructure/photo_6143153756141457140_y.jpg`,
-                alt: 'Infrastructure image 4',
-              },
-            ].map((media, index) => (
-              <div key={index} className="media-item">
-                {media.type === 'video' ? (
-                  <video
-                    src={media.src}
-                    controls
-                    className="media-content"
-                    loading="lazy"
-                  >
-                    Your browser does not support the video tag.
-                  </video>
-                ) : (
-                  <img
-                    src={media.src}
-                    alt={media.alt}
-                    className="media-content"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="clients" className="section clients-section">
-        <div className="container">
-          <div className="section-header">
-            <h2>Trusted By</h2>
-            <p>We proudly serve leading dairy brands</p>
-          </div>
-          {(() => {
-            const clients = [
-              {
-                name: 'Karimnagar Dairy',
-                logo: 'https://www.karimnagardairy.in/wp-content/uploads/2020/09/logo.png'
-              },
-              {
-                name: 'Mother Dairy',
-                logo: 'https://upload.wikimedia.org/wikipedia/en/2/26/Mother_Dairy_logo.svg'
-              },
-              {
-                name: 'Vijaya Dairy',
-                logo: 'https://tgdairy.telangana.gov.in/images/logo.png'
-              },
-              {
-                name: 'Masqati Dairy',
-                logo: 'https://i.ibb.co/MCgdg5q/masqati-logo.png'
-              }
-            ];
-            return (
-              <div className="clients-logos">
-                {clients.map((c) => {
-                  const inputId = `upload-${c.name.replace(/\\s+/g, '-').toLowerCase()}`;
-                  const src = customLogos[c.name] || c.logo;
-                  return (
-                    <div key={c.name} className="client-card" aria-label={c.name}>
-                      <div
-                        className="client-logo"
-                        onDragOver={(e) => e.preventDefault()}
-                        onDrop={(e) => onDropImage(c.name, e)}
-                        onClick={() => {
-                          const el = document.getElementById(inputId);
-                          if (el) el.click();
-                        }}
-                        role="button"
-                        aria-label={`Set logo for ${c.name}`}
-                        tabIndex={0}
-                        onKeyDown={(e) => {
-                          if (e.key === 'Enter' || e.key === ' ') {
-                            const el = document.getElementById(inputId);
-                            if (el) el.click();
-                          }
-                        }}
-                      >
-                        <img
-                          src={src}
-                          alt={`${c.name} logo`}
-                          loading="lazy"
-                          decoding="async"
-                          width="240"
-                          height="64"
-                          className="client-logo-img"
-                          onError={(e) => {
-                            e.currentTarget.src = makePlaceholder(c.name);
-                          }}
-                        />
-                        <input
-                          id={inputId}
-                          type="file"
-                          accept="image/*"
-                          style={{ display: 'none' }}
-                          onChange={(evt) => handleFileSelect(c.name, evt)}
-                        />
-                      </div>
-                      <div className="client-name">{c.name}</div>
-                    </div>
-                  );
-                })}
-              </div>
-            );
-          })()}
-        </div>
-      </section>
+      <Clients
+        customLogos={customLogos}
+        onDropImage={onDropImage}
+        handleFileSelect={handleFileSelect}
+        makePlaceholder={makePlaceholder}
+      />
       
-      <section id="about" className="section about-section">
-        <div className="container">
-          <div className="section-header">
-            <h2>Why Choose PVN Industries?</h2>
-            <p>Excellence in Manufacturing & Branding</p>
-          </div>
-          
-          <div className="features-grid">
-            <div className="feature-card">
-              <Printer size={48} color="#2563eb" />
-              <h3>Dry Offset Printing</h3>
-              <p>We offer high-quality dry offset printing directly on buckets for vibrant, durable branding suitable for industrial use.</p>
-            </div>
-            <div className="feature-card">
-              <CheckCircle size={48} color="#2563eb" />
-              <h3>Food-Grade Material</h3>
-              <p>Our buckets are manufactured using 100% virgin food-grade plastic ensuring hygiene and safety for dairy products.</p>
-            </div>
-            <div className="feature-card">
-              <Package size={48} color="#2563eb" />
-              <h3>Bulk Supply</h3>
-              <p>Equipped to handle large industrial orders with timely delivery across Telangana and India.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <FAQ />
 
-      <section id="faq" className="section faq-section">
-        <div className="container">
-          <div className="section-header">
-            <h2>FAQs</h2>
-            <p>Answers to common questions from dairy partners</p>
-          </div>
-          <div className="faq-list">
-            {[
-              {
-                q: 'Are your buckets food-grade and safe for curd?',
-                a: 'Yes. We use virgin PP/HDPE resins and dairy-safe inks. Our process follows hygiene protocols and ink migration safety.',
-              },
-              {
-                q: 'Do lids have tamper evidence?',
-                a: 'Yes. We offer snap-fit and ring-lock tamper-evident lids across capacities for product integrity.',
-              },
-              {
-                q: 'Can you print my brand and artwork?',
-                a: 'Absolutely. We support high-definition Dry Offset printing up to 6 colors with 360° coverage.',
-              },
-              {
-                q: 'What’s the minimum order quantity (MOQ)?',
-                a: 'MOQs vary by size and printing. Share your requirement and we will propose an optimized MOQ.',
-              },
-              {
-                q: 'What are the lead times and delivery options?',
-                a: 'Standard lead times are 7–15 days based on quantity and artwork approval. Pan-India delivery supported.',
-              },
-            ].map((item, idx) => (
-              <div key={item.q} className={`faq-item ${faqOpen === idx ? 'open' : ''}`}>
-                <button className="faq-q" onClick={() => setFaqOpen(faqOpen === idx ? null : idx)}>
-                  <span>{item.q}</span>
-                  <span>{faqOpen === idx ? '–' : '+'}</span>
-                </button>
-                {faqOpen === idx && <div className="faq-a">{item.a}</div>}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Contact />
 
-      <section id="contact" className="section contact-section">
-        <div className="container">
-          <div className="section-header">
-            <h2>Contact Us</h2>
-            <p>Reach out for orders and inquiries</p>
-          </div>
-
-          <div className="contact-wrapper">
-            <div className="contact-info">
-              <div className="info-item">
-                <MapPin className="icon" />
-                <div>
-                  <h4>Factory Address</h4>
-                  <p>Plot No. 31/1 & 31/2, Mankhal Plastic Park (Extn.)<br />
-                  Thummaluru Viii., Maheshwaram Mdl.,<br />
-                  R.R. Dist., 501 359, Telangana.</p>
-                </div>
-              </div>
-              
-              <div className="info-item">
-                <Phone className="icon" />
-                <div>
-                  <h4>Phone</h4>
-                  <p>+91 8501905917</p>
-                </div>
-              </div>
-
-              <div className="info-item">
-                <Mail className="icon" />
-                <div>
-                  <h4>Email</h4>
-                  <p>pvnindustries.tg@gmail.com</p>
-                </div>
-              </div>
-
-              <div className="info-item">
-                <CheckCircle className="icon" />
-                <div>
-                  <h4>GSTIN</h4>
-                  <p>36BOQPK3182L2ZB</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="map-container">
-              <iframe
-                title="PVN Industries Location"
-                src="https://www.openstreetmap.org/export/embed.html?bbox=78.45916666931488%2C17.160592744145144%2C78.46916666931488%2C17.170592744145145&layer=mapnik&marker=17.165592744145144%2C78.46416666931488"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
-            </div>
-            <div style={{ marginTop: '8px' }}>
-              <a
-                href="https://www.google.com/maps?q=17.165592744145144,78.46416666931488"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn secondary"
-              >
-                Open in Google Maps
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <footer>
-        <div className="container">
-          <div className="footer-brand">
-            <img
-              src={`${import.meta.env.BASE_URL}logos/pvn-logo.png`}
-              alt="PVN Industries logo"
-              className="footer-logo-img"
-              onError={(e) => {
-                e.currentTarget.style.display = 'none';
-              }}
-            />
-          </div>
-          <div className="footer-text">
-            <p>&copy; {new Date().getFullYear()} PVN Industries. All Rights Reserved.</p>
-            <p className="small">Plastic Curd Bucket Manufacturers | Dry Offset Printing</p>
-          </div>
-          <div className="footer-social">
-            <a href="https://www.instagram.com/pvnindustries" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              <Instagram size={20} />
-            </a>
-            <a href="https://www.youtube.com/@pvnindustries" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-              <Youtube size={20} />
-            </a>
-          </div>
-        </div>
-      </footer>
+      <Footer scrollToSection={scrollToSection} />
     </div>
   );
 };

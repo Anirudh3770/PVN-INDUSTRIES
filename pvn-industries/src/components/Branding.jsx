@@ -1,0 +1,61 @@
+import React from 'react';
+import './Branding.css';
+
+import { Palette, ShieldCheck, Repeat } from 'lucide-react';
+
+const features = [
+  {
+    icon: <Palette size={28} className="feature-icon" />,
+    title: 'Up to 6 Colors',
+    description: 'Achieve complex, eye-catching designs with our multi-color printing capabilities.',
+  },
+  {
+    icon: <ShieldCheck size={28} className="feature-icon" />,
+    title: 'Food-Safe Inks',
+    description: 'We use specially formulated inks that are safe for food packaging and resistant to migration.',
+  },
+  {
+    icon: <Repeat size={28} className="feature-icon" />,
+    title: '360° Wrap-Around Graphics',
+    description: 'Maximize your branding real estate with seamless, full-wrap designs for maximum shelf impact.',
+  },
+];
+
+const Branding = () => {
+  return (
+    <section id="branding" className="section branding-section">
+      <div className="container">
+        <div className="branding-grid">
+          <div className="branding-content">
+            <div className="section-header">
+              <h2 className="section-title">High-Impact Branding</h2>
+              <p className="section-subtitle">
+                Make your brand stand out on the shelf with vibrant, durable, and food-safe dry offset printing.
+              </p>
+            </div>
+            <div className="features-list">
+              {features.map((feature, index) => (
+                <div key={index} className="feature-item">
+                  {feature.icon}
+                  <div className="feature-text">
+                    <h3 className="feature-title">{feature.title}</h3>
+                    <p className="feature-description">{feature.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="branding-image-container">
+            <img 
+              src="products/curd-buckets.jpg" 
+              alt="Branded curd buckets with high-quality printing" 
+              className="branding-image"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Branding;
