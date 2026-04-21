@@ -52,7 +52,7 @@
 }
 
 .spec-description {
-  color: var(--grey);
+  color: var(--dark-grey);
   font-size: 0.9rem;
   line-height: 1.6;
 }

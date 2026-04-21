@@ -2,7 +2,10 @@ import React from 'react';
 import './Specs.css';
 
 
-import { Box, Package, ShieldCheck, Printer } from 'lucide-react';
+import Box from 'lucide-react/dist/esm/icons/box';
+import Package from 'lucide-react/dist/esm/icons/package';
+import ShieldCheck from 'lucide-react/dist/esm/icons/shield-check';
+import Printer from 'lucide-react/dist/esm/icons/printer';
 
 const specs = [
   {

@@ -2,7 +2,9 @@
 import React from 'react';
 import './About.css';
 
-import { Printer, CheckCircle, Package } from 'lucide-react';
+import Printer from 'lucide-react/dist/esm/icons/printer';
+import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
+import Package from 'lucide-react/dist/esm/icons/package';
 
 const About = () => {
   return (

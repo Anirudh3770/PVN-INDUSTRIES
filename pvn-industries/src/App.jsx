@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import { Menu, X, Instagram, Youtube } from 'lucide-react';
+import Menu from 'lucide-react/dist/esm/icons/menu';
+import X from 'lucide-react/dist/esm/icons/x';
+
 import Hero from './components/Hero';
 import Journey from './components/Journey';
 import Specs from './components/Specs';
@@ -96,6 +98,8 @@ const App = () => {
                 src={PVN_ASSET}
                 alt="PVN Industries logo"
                 className="pvn-logo-img"
+                
+                
                 onError={(e) => {
                   setPvnAssetVisible(false);
                   e.currentTarget.style.display = 'none';
@@ -107,16 +111,16 @@ const App = () => {
           </div>
           
           <div className="desktop-menu">
-            <button onClick={() => scrollToSection('home')}>Home</button>
-            <button onClick={() => scrollToSection('products')}>Products</button>
-            <button onClick={() => scrollToSection('journey')}>Our Journey</button>
-            <button onClick={() => scrollToSection('specs')}>Specs</button>
-            <button onClick={() => scrollToSection('technology')}>Technology</button>
-            <button onClick={() => scrollToSection('about')}>About</button>
-            <button onClick={() => scrollToSection('infrastructure')}>Gallery</button>
-            <button onClick={() => scrollToSection('faq')}>FAQ</button>
-            <button onClick={() => scrollToSection('clients')}>Clients</button>
-            <button onClick={() => scrollToSection('contact')}>Contact</button>
+            <a href="#home" onClick={() => scrollToSection('home')} role="button">Home</a>
+            <a href="#products" onClick={() => scrollToSection('products')} role="button">Products</a>
+            <a href="#journey" onClick={() => scrollToSection('journey')} role="button">Our Journey</a>
+            <a href="#specs" onClick={() => scrollToSection('specs')} role="button">Specs</a>
+            <a href="#technology" onClick={() => scrollToSection('technology')} role="button">Technology</a>
+            <a href="#about" onClick={() => scrollToSection('about')} role="button">About</a>
+            <a href="#infrastructure" onClick={() => scrollToSection('infrastructure')} role="button">Gallery</a>
+            <a href="#faq" onClick={() => scrollToSection('faq')} role="button">FAQ</a>
+            <a href="#clients" onClick={() => scrollToSection('clients')} role="button">Clients</a>
+            <a href="#contact" onClick={() => scrollToSection('contact')} role="button">Contact</a>
           </div>
 
           <div className="mobile-toggle" onClick={toggleMenu}>
@@ -126,16 +130,16 @@ const App = () => {
 
         {isMenuOpen && (
           <div className="mobile-menu">
-            <button onClick={() => scrollToSection('home')}>Home</button>
-            <button onClick={() => scrollToSection('about')}>About</button>
-            <button onClick={() => scrollToSection('journey')}>Our Journey</button>
-            <button onClick={() => scrollToSection('specs')}>Specs</button>
-            <button onClick={() => scrollToSection('technology')}>Technology</button>
-            <button onClick={() => scrollToSection('products')}>Products</button>
-            <button onClick={() => scrollToSection('infrastructure')}>Gallery</button>
-            <button onClick={() => scrollToSection('faq')}>FAQ</button>
-            <button onClick={() => scrollToSection('clients')}>Clients</button>
-            <button onClick={() => scrollToSection('contact')}>Contact</button>
+            <a href="#home" onClick={() => scrollToSection('home')} role="button">Home</a>
+            <a href="#products" onClick={() => scrollToSection('products')} role="button">Products</a>
+            <a href="#journey" onClick={() => scrollToSection('journey')} role="button">Our Journey</a>
+            <a href="#about" onClick={() => scrollToSection('about')} role="button">About</a>
+            <a href="#specs" onClick={() => scrollToSection('specs')} role="button">Specs</a>
+            <a href="#technology" onClick={() => scrollToSection('technology')} role="button">Technology</a>
+            <a href="#infrastructure" onClick={() => scrollToSection('infrastructure')} role="button">Gallery</a>
+            <a href="#faq" onClick={() => scrollToSection('faq')} role="button">FAQ</a>
+            <a href="#clients" onClick={() => scrollToSection('clients')} role="button">Clients</a>
+            <a href="#contact" onClick={() => scrollToSection('contact')} role="button">Contact</a>
           </div>
         )}
       </nav>

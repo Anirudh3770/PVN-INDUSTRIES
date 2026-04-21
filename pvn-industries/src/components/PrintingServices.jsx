@@ -1,6 +1,9 @@
 import React from 'react';
 import './PrintingServices.css';
-import { Palette, Layers, ShieldCheck, Image } from 'lucide-react';
+import Palette from 'lucide-react/dist/esm/icons/palette';
+import Layers from 'lucide-react/dist/esm/icons/layers';
+import ShieldCheck from 'lucide-react/dist/esm/icons/shield-check';
+import Image from 'lucide-react/dist/esm/icons/image';
 import printingMachineImage from '/infrastructure/photo_6143153756141457139_y.jpg';
 import printedBucketImage from '/infrastructure/photo_6143153756141457140_y.jpg';
 
@@ -26,6 +29,8 @@ const PrintingServices = () => {
               src={printingMachineImage} 
               alt="High-quality dry offset printing machine in action" 
               className="printing-image"
+              width="640"
+              height="360"
             />
           </div>
           <div className="grid-item printing-image-2">
@@ -33,6 +38,8 @@ const PrintingServices = () => {
               src={printedBucketImage} 
               alt="Close-up of a vibrantly printed bucket" 
               className="printing-image"
+              width="640"
+              height="360"
             />
           </div>
           <div className="grid-item printing-features-card">

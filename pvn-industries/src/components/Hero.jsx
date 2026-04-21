@@ -1,7 +1,9 @@
 import React from 'react';
 import './Hero.css'; 
 
-import { CheckCircle, Printer, Package } from 'lucide-react';
+import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
+import Printer from 'lucide-react/dist/esm/icons/printer';
+import Package from 'lucide-react/dist/esm/icons/package';
 
 const Hero = ({ scrollToSection }) => {
   return (
@@ -11,8 +13,11 @@ const Hero = ({ scrollToSection }) => {
     >
       <div className="hero-overlay"></div>
       <div className="container hero-content">
-        <div className="brand-overline">PVN Industries</div>
-        <h1>Food‑Grade <span className="text-yellow">Curd Buckets</span> For Dairy Brands</h1>
+        <div className="hero-brand">
+          <h2 className="hero-brand-title">PVN Industries</h2>
+          <p className="hero-brand-address">IP Mankhal, Ranga Reddy, Telangana</p>
+        </div>
+        <h2>Food‑Grade <span className="text-yellow">Curd Buckets</span> For Dairy Brands</h2>
         <p>Durable PP/HDPE containers with tamper‑evident lids and high‑definition Dry Offset printing for strong shelf impact.</p>
         
         <div className="hero-badges">

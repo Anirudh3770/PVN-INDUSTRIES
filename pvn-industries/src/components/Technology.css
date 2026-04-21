@@ -81,7 +81,7 @@
 }
 
 .tech-card-content p {
-  color: var(--grey);
+  color: var(--dark-grey);
   font-size: 1rem;
   line-height: 1.7;
   position: relative;

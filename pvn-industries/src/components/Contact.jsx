@@ -1,7 +1,10 @@
 import React from 'react';
 import './Contact.css';
 
-import { Phone, Mail, MapPin, CheckCircle } from 'lucide-react';
+import Phone from 'lucide-react/dist/esm/icons/phone';
+import Mail from 'lucide-react/dist/esm/icons/mail';
+import MapPin from 'lucide-react/dist/esm/icons/map-pin';
+import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
 
 const Contact = () => {
   return (

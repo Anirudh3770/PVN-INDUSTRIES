@@ -1,7 +1,9 @@
 import React from 'react';
 import './Branding.css';
 
-import { Palette, ShieldCheck, Repeat } from 'lucide-react';
+import Palette from 'lucide-react/dist/esm/icons/palette';
+import ShieldCheck from 'lucide-react/dist/esm/icons/shield-check';
+import Repeat from 'lucide-react/dist/esm/icons/repeat';
 
 const features = [
   {
@@ -50,6 +52,8 @@ const Branding = () => {
               src="products/curd-buckets.jpg" 
               alt="Branded curd buckets with high-quality printing" 
               className="branding-image"
+              width="500"
+              height="500"
             />
           </div>
         </div>

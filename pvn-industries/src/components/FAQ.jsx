@@ -2,7 +2,8 @@
 import React, { useState } from 'react';
 import './FAQ.css';
 
-import { Plus, Minus } from 'lucide-react';
+import Plus from 'lucide-react/dist/esm/icons/plus';
+import Minus from 'lucide-react/dist/esm/icons/minus';
 
 const FAQ = () => {
   const [faqOpen, setFaqOpen] = useState(null);

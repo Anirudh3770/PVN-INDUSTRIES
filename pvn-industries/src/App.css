@@ -6,6 +6,7 @@
   --accent: #ff9f1c;
   --dark: #1a1a1a;
   --grey: #6c757d;
+  --dark-grey: #4a4a4a;
   --white: #ffffff;
   --light: #eaf3ff;
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -60,7 +61,7 @@ body {
 }
 
 .section-header p {
-  color: var(--grey);
+  color: var(--dark-grey);
 }
 
 .btn {
@@ -92,7 +93,7 @@ body {
 
 .section-subtitle {
   text-align: center;
-  color: var(--grey);
+  color: var(--dark-grey);
   margin-bottom: 3rem;
   max-width: 600px;
   margin-left: auto;
@@ -128,12 +129,13 @@ body {
 }
 
 .pvn-logo-img {
-  height: 55px;
+  height: 80px;
+  width: auto;
 }
 
 @media (max-width: 768px) {
   .pvn-logo-img {
-    height: 60px;
+    height: 70px;
   }
 }
 
@@ -163,16 +165,17 @@ body {
   gap: 1rem;
 }
 
-.desktop-menu button {
+.desktop-menu a {
   background: transparent;
   border: none;
   padding: 0.5rem 0.75rem;
   cursor: pointer;
   color: var(--dark);
   font-weight: 600;
+  text-decoration: none;
 }
 
-.desktop-menu button:hover {
+.desktop-menu a:hover {
   color: var(--primary);
 }
 
@@ -194,7 +197,7 @@ body {
   z-index: 999;
 }
 
-.mobile-menu button {
+.mobile-menu a {
   width: 100%;
   text-align: left;
   background: transparent;
@@ -203,9 +206,10 @@ body {
   font-weight: 600;
   color: var(--dark);
   border-radius: 8px;
+  text-decoration: none;
 }
 
-.mobile-menu button:hover {
+.mobile-menu a:hover {
   background: var(--light);
 }
 
@@ -244,26 +248,7 @@ body {
   }
 }
 
-.cta-band {
-  background: linear-gradient(
-    135deg,
-    rgba(0, 168, 204, 0.12),
-    rgba(0, 86, 179, 0.12)
-  );
-  padding: 1.5rem 0;
-}
 
-.cta-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.cta-actions {
-  display: flex;
-  gap: 0.5rem;
-}
 
 .btn.secondary {
   background: transparent;
@@ -279,6 +264,27 @@ body {
   font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;
+}
+
+/* Tablet Navigation Adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .desktop-menu {
+    gap: 0.5rem;
+  }
+
+  .desktop-menu a {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .header-actions .btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+  
+  .pvn-logo-img {
+      height: 50px;
+  }
 }
 
 /* Mobile */
@@ -306,6 +312,9 @@ body {
     grid-column: auto;
   }
   .desktop-menu {
+    display: none;
+  }
+  .desktop-quote-btn {
     display: none;
   }
   .mobile-toggle {
