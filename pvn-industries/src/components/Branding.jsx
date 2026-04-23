@@ -27,14 +27,23 @@ const Branding = () => {
   return (
     <section id="branding" className="section branding-section">
       <div className="container">
+        <div className="section-header">
+          <h2 className="section-title">High-Definition IML & Offset Printing</h2>
+          <p className="section-subtitle">
+            Transform your packaging into a powerful branding tool with our advanced printing solutions.
+          </p>
+        </div>
         <div className="branding-grid">
+          <div className="branding-image-container">
+            <img 
+              src="products/curd-buckets.jpg" 
+              alt="Branded curd buckets with high-quality printing" 
+              className="branding-image"
+              width="500"
+              height="500"
+            />
+          </div>
           <div className="branding-content">
-            <div className="section-header">
-              <h2 className="section-title">High-Impact Branding</h2>
-              <p className="section-subtitle">
-                Make your brand stand out on the shelf with vibrant, durable, and food-safe dry offset printing.
-              </p>
-            </div>
             <div className="features-list">
               {features.map((feature, index) => (
                 <div key={index} className="feature-item">
@@ -46,15 +55,6 @@ const Branding = () => {
                 </div>
               ))}
             </div>
-          </div>
-          <div className="branding-image-container">
-            <img 
-              src="products/curd-buckets.jpg" 
-              alt="Branded curd buckets with high-quality printing" 
-              className="branding-image"
-              width="500"
-              height="500"
-            />
           </div>
         </div>
       </div>

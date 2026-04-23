@@ -36,9 +36,6 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  position: relative;
-  cursor: pointer;
-  border: 1px dashed transparent;
 }
 
 .client-logo-img {
@@ -48,35 +45,6 @@
   filter: grayscale(100%) contrast(1.05);
   opacity: 0.9;
   transition: filter 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
-}
-
-.client-logo:hover {
-  border-color: rgba(0,0,0,0.12);
-}
-
-.client-logo::after {
-  content: "Click or drag image";
-  position: absolute;
-  bottom: 6px;
-  right: 8px;
-  background: rgba(0,0,0,0.6);
-  color: #fff;
-  font-size: 10px;
-  line-height: 1;
-  padding: 4px 6px;
-  border-radius: 6px;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  pointer-events: none;
-}
-
-.client-logo:hover::after {
-  opacity: 1;
-}
-
-.client-logo.drop-over {
-  border-color: var(--secondary);
-  background: rgba(0,168,204,0.06);
 }
 
 .client-card:hover .client-logo-img {

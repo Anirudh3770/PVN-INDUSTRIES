@@ -11,15 +11,7 @@
   margin-top: 60px;
   padding: 56px 16px;
   overflow: hidden;
-  background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1a2a6c, #0f2027);
-  background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite;
-}
-
-@keyframes gradientBG {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  background-color: #0f2027;
 }
 
 .hero-overlay {
@@ -33,13 +25,11 @@
   max-width: 900px;
   position: relative;
   z-index: 2;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 24px;
   padding: 4rem 3rem;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .hero-content h1 {
@@ -169,11 +159,12 @@
   letter-spacing: 0.5px;
 }
 
-.text-yellow {
-  background-color: var(--accent, #ffc547);
-  color: var(--dark, #0f2027);
-  padding: 0.1em 0.4em;
-  border-radius: 4px;
+.text-highlight {
+  background: linear-gradient(45deg, var(--accent), #ffda79);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
 }
 
 @media (max-width: 768px) {

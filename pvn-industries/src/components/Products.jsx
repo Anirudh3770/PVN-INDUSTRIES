@@ -5,36 +5,48 @@ import './Products.css';
 const products = [
   {
     name: '5L Curd Bucket',
-    description: 'Ideal for small families and retail stores.',
     imageUrl: 'products/10kg-bucket.jpg',
-    specifications: [
-      'Capacity: 5 Liters',
-      'Material: Food-Grade PP',
-      'Lid: Tamper-Evident',
-      'Handle: Plastic Grip',
-    ],
+    specifications: {
+      'Capacity': '5 Liters',
+      'Material': 'Food-Grade PP',
+      'Top Diameter': '210mm',
+      'Bottom Diameter': '180mm',
+      'Height': '190mm',
+      'Weight': '180g',
+      'Lid': 'Tamper-Evident Gasket Lid',
+      'Printing': 'Up to 4-Color Dry Offset',
+      'Use Cases': 'Retail, small restaurants, catering',
+    },
   },
   {
     name: '10L Curd Bucket',
-    description: 'Perfect for medium-sized dairies and HORECA.',
     imageUrl: 'products/10kg-bucket.jpg',
-    specifications: [
-      'Capacity: 10 Liters',
-      'Material: Food-Grade PP/HDPE',
-      'Lid: Tamper-Evident Ring-Lock',
-      'Handle: Heavy-Duty Plastic',
-    ],
+    specifications: {
+      'Capacity': '10 Liters',
+      'Material': 'Food-Grade PP/HDPE',
+      'Top Diameter': '265mm',
+      'Bottom Diameter': '225mm',
+      'Height': '255mm',
+      'Weight': '350g',
+      'Lid': 'Tamper-Evident Ring-Lock Lid',
+      'Printing': 'Up to 4-Color Dry Offset',
+      'Use Cases': 'Dairies, restaurants, food service',
+    },
   },
   {
     name: '20L Curd Bucket',
-    description: 'Designed for bulk packaging and large-scale use.',
     imageUrl: 'products/20kg-bucket.jpg',
-    specifications: [
-      'Capacity: 20 Liters',
-      'Material: High-Strength HDPE',
-      'Lid: Secure Ring-Lock System',
-      'Handle: Reinforced for Heavy Loads',
-    ],
+    specifications: {
+      'Capacity': '20 Liters',
+      'Material': 'High-Strength HDPE',
+      'Top Diameter': '320mm',
+      'Bottom Diameter': '275mm',
+      'Height': '340mm',
+      'Weight': '750g',
+      'Lid': 'Secure Ring-Lock System',
+      'Printing': 'Up to 4-Color Dry Offset',
+      'Use Cases': 'Bulk storage, industrial kitchens, B2B supply',
+    },
   },
 ];
 
@@ -58,12 +70,14 @@ const Products = () => {
                 </div>
                 <div className="product-content">
                   <h3 className="product-name">{product.name}</h3>
-                  <p className="product-description">{product.description}</p>
-                  <ul className="product-specs">
-                    {product.specifications.map((spec, i) => (
-                      <li key={i}>{spec}</li>
+                  <div className="product-specs">
+                    {Object.entries(product.specifications).map(([key, value]) => (
+                      <div key={key} className="spec-row">
+                        <span className="spec-key">{key}</span>
+                        <span className="spec-value">{value}</span>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                   <div className="product-actions">
                     <a 
                       href={`mailto:pvnindustries.tg@gmail.com?subject=Quote Request for ${encodeURIComponent(product.name)}`} 

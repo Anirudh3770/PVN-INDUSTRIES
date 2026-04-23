@@ -13,11 +13,8 @@ const Hero = ({ scrollToSection }) => {
     >
       <div className="hero-overlay"></div>
       <div className="container hero-content">
-        <div className="hero-brand">
-          <h2 className="hero-brand-title">PVN Industries</h2>
-          <p className="hero-brand-address">IP Mankhal, Ranga Reddy, Telangana</p>
-        </div>
-        <h2>Food‑Grade <span className="text-yellow">Curd Buckets</span> For Dairy Brands</h2>
+        <div className="brand-overline">PVN Industries</div>
+        <h1>Food‑Grade <span className="text-highlight">Curd Buckets</span> For Dairy Brands</h1>
         <p>Durable PP/HDPE containers with tamper‑evident lids and high‑definition Dry Offset printing for strong shelf impact.</p>
         
         <div className="hero-badges">

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-scroll';
 import './App.css';
 import Menu from 'lucide-react/dist/esm/icons/menu';
 import X from 'lucide-react/dist/esm/icons/x';
@@ -7,6 +8,8 @@ import Hero from './components/Hero';
 import Journey from './components/Journey';
 import Specs from './components/Specs';
 import Products from './components/Products';
+import Trust from './components/Trust';
+import Industries from './components/Industries';
 import PrintingServices from './components/PrintingServices';
 import Branding from './components/Branding';
 import Technology from './components/Technology';
@@ -36,12 +39,16 @@ const App = () => {
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
+  const handleLinkClick = () => {
+    setIsMenuOpen(false);
+  };
+
+  // This function is passed to child components for their internal scroll buttons
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
-    setIsMenuOpen(false);
   };
 
   useEffect(() => {
@@ -111,16 +118,16 @@ const App = () => {
           </div>
           
           <div className="desktop-menu">
-            <a href="#home" onClick={() => scrollToSection('home')} role="button">Home</a>
-            <a href="#products" onClick={() => scrollToSection('products')} role="button">Products</a>
-            <a href="#journey" onClick={() => scrollToSection('journey')} role="button">Our Journey</a>
-            <a href="#specs" onClick={() => scrollToSection('specs')} role="button">Specs</a>
-            <a href="#technology" onClick={() => scrollToSection('technology')} role="button">Technology</a>
-            <a href="#about" onClick={() => scrollToSection('about')} role="button">About</a>
-            <a href="#infrastructure" onClick={() => scrollToSection('infrastructure')} role="button">Gallery</a>
-            <a href="#faq" onClick={() => scrollToSection('faq')} role="button">FAQ</a>
-            <a href="#clients" onClick={() => scrollToSection('clients')} role="button">Clients</a>
-            <a href="#contact" onClick={() => scrollToSection('contact')} role="button">Contact</a>
+            <Link to="home" smooth={true} duration={500} role="button">Home</Link>
+            <Link to="products" smooth={true} duration={500} role="button">Products</Link>
+            <Link to="journey" smooth={true} duration={500} role="button">Our Journey</Link>
+            <Link to="specs" smooth={true} duration={500} role="button">Specs</Link>
+            <Link to="technology" smooth={true} duration={500} role="button">Technology</Link>
+            <Link to="about" smooth={true} duration={500} role="button">About</Link>
+            <Link to="infrastructure" smooth={true} duration={500} role="button">Gallery</Link>
+            <Link to="faq" smooth={true} duration={500} role="button">FAQ</Link>
+            <Link to="clients" smooth={true} duration={500} role="button">Clients</Link>
+            <Link to="contact" smooth={true} duration={500} role="button">Contact</Link>
           </div>
 
           <div className="mobile-toggle" onClick={toggleMenu}>
@@ -130,16 +137,16 @@ const App = () => {
 
         {isMenuOpen && (
           <div className="mobile-menu">
-            <a href="#home" onClick={() => scrollToSection('home')} role="button">Home</a>
-            <a href="#products" onClick={() => scrollToSection('products')} role="button">Products</a>
-            <a href="#journey" onClick={() => scrollToSection('journey')} role="button">Our Journey</a>
-            <a href="#about" onClick={() => scrollToSection('about')} role="button">About</a>
-            <a href="#specs" onClick={() => scrollToSection('specs')} role="button">Specs</a>
-            <a href="#technology" onClick={() => scrollToSection('technology')} role="button">Technology</a>
-            <a href="#infrastructure" onClick={() => scrollToSection('infrastructure')} role="button">Gallery</a>
-            <a href="#faq" onClick={() => scrollToSection('faq')} role="button">FAQ</a>
-            <a href="#clients" onClick={() => scrollToSection('clients')} role="button">Clients</a>
-            <a href="#contact" onClick={() => scrollToSection('contact')} role="button">Contact</a>
+            <Link to="home" smooth={true} duration={500} onClick={handleLinkClick} role="button">Home</Link>
+            <Link to="products" smooth={true} duration={500} onClick={handleLinkClick} role="button">Products</Link>
+            <Link to="journey" smooth={true} duration={500} onClick={handleLinkClick} role="button">Our Journey</Link>
+            <Link to="about" smooth={true} duration={500} onClick={handleLinkClick} role="button">About</Link>
+            <Link to="specs" smooth={true} duration={500} onClick={handleLinkClick} role="button">Specs</Link>
+            <Link to="technology" smooth={true} duration={500} onClick={handleLinkClick} role="button">Technology</Link>
+            <Link to="infrastructure" smooth={true} duration={500} onClick={handleLinkClick} role="button">Gallery</Link>
+            <Link to="faq" smooth={true} duration={500} onClick={handleLinkClick} role="button">FAQ</Link>
+            <Link to="clients" smooth={true} duration={500} onClick={handleLinkClick} role="button">Clients</Link>
+            <Link to="contact" smooth={true} duration={500} onClick={handleLinkClick} role="button">Contact</Link>
           </div>
         )}
       </nav>
@@ -153,6 +160,9 @@ const App = () => {
       <div id="products">
         <Products />
       </div>
+
+      <Trust />
+        <Industries />
 
       <Branding />
 
