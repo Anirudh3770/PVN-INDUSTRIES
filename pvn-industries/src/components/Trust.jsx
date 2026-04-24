@@ -5,7 +5,7 @@ const trustData = [
   {
     title: 'Advanced Injection Molding',
     description: 'Utilizing modern, high-precision machinery to produce consistent, durable, and defect-free buckets.',
-    imageUrl: 'infrastructure/new machine.jpg',
+    imageUrl: 'infrastructure/photo_6143153756141457098_y.jpg',
   },
   {
     title: 'Quality Assurance Lab',

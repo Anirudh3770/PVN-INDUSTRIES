@@ -1,46 +1,88 @@
 import React from 'react';
-import './Hero.css'; 
+import './Hero.css';
 
 import CheckCircle from 'lucide-react/dist/esm/icons/check-circle';
 import Printer from 'lucide-react/dist/esm/icons/printer';
 import Package from 'lucide-react/dist/esm/icons/package';
+import PhoneCall from 'lucide-react/dist/esm/icons/phone-call';
 
 const Hero = ({ scrollToSection }) => {
+  const BUCKET_IMAGE_URL = `${import.meta.env.BASE_URL}products/10kg-bucket.jpg`;
+
   return (
-    <header
-      id="home"
-      className="hero"
-    >
-      <div className="hero-overlay"></div>
-      <div className="container hero-content">
-        <div className="brand-overline">PVN Industries</div>
-        <h1>Food‑Grade <span className="text-highlight">Curd Buckets</span> For Dairy Brands</h1>
-        <p>Durable PP/HDPE containers with tamper‑evident lids and high‑definition Dry Offset printing for strong shelf impact.</p>
-        
-        <div className="hero-badges">
-          <div className="hero-badge"><CheckCircle size={18} /> Food‑Grade Materials</div>
-          <div className="hero-badge"><Printer size={18} /> Dry Offset up to 6 Colors</div>
-          <div className="hero-badge"><Package size={18} /> 5L • 10L • 20L</div>
+    <header id="home" className="hero">
+
+
+      <div className="container hero-container">
+        <div className="hero-content">
+          <div className="hero-overline">
+            <span className="hero-brand-name">PVN Industries</span>
+            <span className="hero-location"> | Mankhal, Telangana</span>
+          </div>
+
+          <h1>PP & HDPE Curd Buckets for Dairy Packaging</h1>
+
+          <p>
+            Manufactured in food-grade PP and HDPE with tamper-evident lids,
+            dry offset printing, and multiple capacities for retail, HORECA,
+            and bulk dairy supply.
+          </p>
+
+          <div className="hero-actions">
+            <button
+              className="btn btn-primary"
+              onClick={() => scrollToSection('contact')}
+            >
+              Get Quote
+            </button>
+
+            <button
+              className="btn btn-secondary"
+              onClick={() => scrollToSection('products')}
+            >
+              View Product Range
+            </button>
+          </div>
+
+          <div className="hero-trust-line">
+            <CheckCircle size={18} />
+            <span>Trusted by dairy brands across Telangana & AP</span>
+          </div>
+
+          <div className="hero-contact-info">
+            <a href="tel:+918501905917">+91 85019 05917</a>
+            <span className="divider">|</span>
+            <a href="mailto:pvnindustries.tg@gmail.com">
+              pvnindustries.tg@gmail.com
+            </a>
+          </div>
+
+          <div className="hero-proof-points">
+            <div className="proof-point">
+              <Package size={16} />
+              <span>Food-Grade PP/HDPE</span>
+            </div>
+
+            <div className="proof-point">
+              <CheckCircle size={16} />
+              <span>Tamper-Evident Lids</span>
+            </div>
+
+            <div className="proof-point">
+              <Printer size={16} />
+              <span>Up to 6-Color Dry Offset Printing</span>
+            </div>
+          </div>
         </div>
 
-        <div className="hero-actions">
-          <button className="btn" onClick={() => scrollToSection('products')}>Explore Buckets</button>
-          <a href="tel:+918501905917" className="btn secondary">Call Sales</a>
-          <a href="mailto:pvnindustries.tg@gmail.com?subject=PVN%20Curd%20Bucket%20Enquiry" className="btn secondary">Get Price List</a>
-        </div>
-
-        <div className="hero-stats">
-          <div className="hero-stat">
-            <div className="hero-stat-num">5L</div>
-            <div className="hero-stat-label">Retail Packs</div>
-          </div>
-          <div className="hero-stat">
-            <div className="hero-stat-num">10L</div>
-            <div className="hero-stat-label">HORECA</div>
-          </div>
-          <div className="hero-stat">
-            <div className="hero-stat-num">20L</div>
-            <div className="hero-stat-label">Bulk Logistics</div>
+        <div className="hero-image-column">
+          <div className="hero-image-frame">
+            <img
+              src={BUCKET_IMAGE_URL}
+              alt="Range of PP and HDPE curd buckets"
+              className="hero-product-image"
+              onError={(e) => e.currentTarget.style.display = 'none'}
+            />
           </div>
         </div>
       </div>
