@@ -1,26 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-scroll';
-import './App.css';
-import Menu from 'lucide-react/dist/esm/icons/menu';
-import X from 'lucide-react/dist/esm/icons/x';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-scroll";
+import "./App.css";
+import Menu from "lucide-react/dist/esm/icons/menu";
+import X from "lucide-react/dist/esm/icons/x";
 
-import Hero from './components/Hero';
-import Journey from './components/Journey';
-import Specs from './components/Specs';
-import Products from './components/Products';
-import Trust from './components/Trust';
-import Industries from './components/Industries';
-import PrintingServices from './components/PrintingServices';
-import Branding from './components/Branding';
-import Technology from './components/Technology';
-import Clients from './components/Clients';
-import About from './components/About';
-import FAQ from './components/FAQ';
-import Contact from './components/Contact';
-import Infrastructure from './components/Infrastructure';
-import CTA from './components/CTA';
-import Footer from './components/Footer';
-
+import Hero from "./components/Hero";
+import Journey from "./components/Journey";
+import Specs from "./components/Specs";
+import Products from "./components/Products";
+import Trust from "./components/Trust";
+import Industries from "./components/Industries";
+import PrintingServices from "./components/PrintingServices";
+import Branding from "./components/Branding";
+import Technology from "./components/Technology";
+import Clients from "./components/Clients";
+import About from "./components/About";
+import FAQ from "./components/FAQ";
+import Contact from "./components/Contact";
+import Infrastructure from "./components/Infrastructure";
+import CTA from "./components/CTA";
+import Footer from "./components/Footer";
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -47,13 +46,13 @@ const App = () => {
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   useEffect(() => {
     try {
-      const stored = localStorage.getItem('clientLogos');
+      const stored = localStorage.getItem("clientLogos");
       if (stored) {
         setCustomLogos(JSON.parse(stored));
       }
@@ -64,7 +63,7 @@ const App = () => {
     const next = { ...customLogos, [name]: dataUrl };
     setCustomLogos(next);
     try {
-      localStorage.setItem('clientLogos', JSON.stringify(next));
+      localStorage.setItem("clientLogos", JSON.stringify(next));
     } catch {}
   };
 
@@ -74,7 +73,7 @@ const App = () => {
     const reader = new FileReader();
     reader.onload = () => {
       const dataUrl = reader.result;
-      if (typeof dataUrl === 'string') {
+      if (typeof dataUrl === "string") {
         saveCustomLogo(name, dataUrl);
       }
     };
@@ -88,7 +87,7 @@ const App = () => {
     const reader = new FileReader();
     reader.onload = () => {
       const dataUrl = reader.result;
-      if (typeof dataUrl === 'string') {
+      if (typeof dataUrl === "string") {
         saveCustomLogo(name, dataUrl);
       }
     };
@@ -105,29 +104,52 @@ const App = () => {
                 src={PVN_ASSET}
                 alt="PVN Industries logo"
                 className="pvn-logo-img"
-                
-                
                 onError={(e) => {
                   setPvnAssetVisible(false);
-                  e.currentTarget.style.display = 'none';
+                  e.currentTarget.style.display = "none";
                 }}
               />
             ) : (
               <Package className="logo-icon" />
             )}
           </div>
-          
+
           <div className="desktop-menu">
-            <Link to="home" smooth={true} duration={500} role="button">Home</Link>
-            <Link to="products" smooth={true} duration={500} role="button">Products</Link>
-            <Link to="journey" smooth={true} duration={500} role="button">Our Journey</Link>
-            <Link to="specs" smooth={true} duration={500} role="button">Specs</Link>
-            <Link to="technology" smooth={true} duration={500} role="button">Technology</Link>
-            <Link to="about" smooth={true} duration={500} role="button">About</Link>
-            <Link to="infrastructure" smooth={true} duration={500} role="button">Gallery</Link>
-            <Link to="faq" smooth={true} duration={500} role="button">FAQ</Link>
-            <Link to="clients" smooth={true} duration={500} role="button">Clients</Link>
-            <Link to="contact" smooth={true} duration={500} role="button">Contact</Link>
+            <Link to="home" smooth={true} duration={500} role="button">
+              Home
+            </Link>
+            <Link to="products" smooth={true} duration={500} role="button">
+              Products
+            </Link>
+            <Link to="journey" smooth={true} duration={500} role="button">
+              Our Journey
+            </Link>
+            <Link to="specs" smooth={true} duration={500} role="button">
+              Specs
+            </Link>
+            <Link to="technology" smooth={true} duration={500} role="button">
+              Technology
+            </Link>
+            <Link to="about" smooth={true} duration={500} role="button">
+              About
+            </Link>
+            <Link
+              to="infrastructure"
+              smooth={true}
+              duration={500}
+              role="button"
+            >
+              Gallery
+            </Link>
+            <Link to="faq" smooth={true} duration={500} role="button">
+              FAQ
+            </Link>
+            <Link to="clients" smooth={true} duration={500} role="button">
+              Clients
+            </Link>
+            <Link to="contact" smooth={true} duration={500} role="button">
+              Contact
+            </Link>
           </div>
 
           <div className="mobile-toggle" onClick={toggleMenu}>
@@ -137,16 +159,96 @@ const App = () => {
 
         {isMenuOpen && (
           <div className="mobile-menu">
-            <Link to="home" smooth={true} duration={500} onClick={handleLinkClick} role="button">Home</Link>
-            <Link to="products" smooth={true} duration={500} onClick={handleLinkClick} role="button">Products</Link>
-            <Link to="journey" smooth={true} duration={500} onClick={handleLinkClick} role="button">Our Journey</Link>
-            <Link to="about" smooth={true} duration={500} onClick={handleLinkClick} role="button">About</Link>
-            <Link to="specs" smooth={true} duration={500} onClick={handleLinkClick} role="button">Specs</Link>
-            <Link to="technology" smooth={true} duration={500} onClick={handleLinkClick} role="button">Technology</Link>
-            <Link to="infrastructure" smooth={true} duration={500} onClick={handleLinkClick} role="button">Gallery</Link>
-            <Link to="faq" smooth={true} duration={500} onClick={handleLinkClick} role="button">FAQ</Link>
-            <Link to="clients" smooth={true} duration={500} onClick={handleLinkClick} role="button">Clients</Link>
-            <Link to="contact" smooth={true} duration={500} onClick={handleLinkClick} role="button">Contact</Link>
+            <Link
+              to="home"
+              smooth={true}
+              duration={500}
+              onClick={handleLinkClick}
+              role="button"
+            >
+              Home
+            </Link>
+            <Link
+              to="products"
+              smooth={true}
+              duration={500}
+              onClick={handleLinkClick}
+              role="button"
+            >
+              Products
+            </Link>
+            <Link
+              to="journey"
+              smooth={true}
+              duration={500}
+              onClick={handleLinkClick}
+              role="button"
+            >
+              Our Journey
+            </Link>
+            <Link
+              to="about"
+              smooth={true}
+              duration={500}
+              onClick={handleLinkClick}
+              role="button"
+            >
+              About
+            </Link>
+            <Link
+              to="specs"
+              smooth={true}
+              duration={500}
+              onClick={handleLinkClick}
+              role="button"
+            >
+              Specs
+            </Link>
+            <Link
+              to="technology"
+              smooth={true}
+              duration={500}
+              onClick={handleLinkClick}
+              role="button"
+            >
+              Technology
+            </Link>
+            <Link
+              to="infrastructure"
+              smooth={true}
+              duration={500}
+              onClick={handleLinkClick}
+              role="button"
+            >
+              Gallery
+            </Link>
+            <Link
+              to="faq"
+              smooth={true}
+              duration={500}
+              onClick={handleLinkClick}
+              role="button"
+            >
+              FAQ
+            </Link>
+            <Link
+              to="clients"
+              smooth={true}
+              duration={500}
+              onClick={handleLinkClick}
+              role="button"
+            >
+              Clients
+            </Link>
+            <Link
+              to="contact"
+              smooth={true}
+              duration={500}
+              onClick={handleLinkClick}
+              role="button"
+            >
+              Contact
+            </Link>
           </div>
         )}
       </nav>
@@ -161,8 +263,11 @@ const App = () => {
         <Products />
       </div>
 
+      <CTA scrollToSection={scrollToSection} />
+
       <Trust />
-        <Industries />
+
+      <Industries />
 
       <Branding />
 
@@ -172,8 +277,6 @@ const App = () => {
 
       <Infrastructure />
 
-      <CTA scrollToSection={scrollToSection} />
-
       <About />
 
       <Clients
@@ -182,10 +285,12 @@ const App = () => {
         handleFileSelect={handleFileSelect}
         makePlaceholder={makePlaceholder}
       />
-      
+
       <FAQ />
 
-      <Contact />
+      <div id="contact">
+        <Contact />
+      </div>
 
       <Footer scrollToSection={scrollToSection} />
     </div>

@@ -1,43 +1,49 @@
+import React from "react";
+import "./CTA.css";
+import ChevronsRight from "lucide-react/dist/esm/icons/chevrons-right";
+import MessageCircle from "lucide-react/dist/esm/icons/message-circle";
 
-import React from 'react';
-import './CTA.css';
-import ChevronsRight from 'lucide-react/dist/esm/icons/chevrons-right';
-import Award from 'lucide-react/dist/esm/icons/award';
-import PackageCheck from 'lucide-react/dist/esm/icons/package-check';
-import Truck from 'lucide-react/dist/esm/icons/truck';
+const CTA = ({ scrollToSection }) => {
+  const whatsappNumber = "918501905917";
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Hello%20PVN%20Industries,%20I%20need%20a%20quote%20for%20curd%20buckets.`;
 
-const CTA = () => {
   return (
-    <section className="section cta-section">
+    <section className="section cta-section" id="cta">
       <div className="container">
         <div className="cta-card">
-          <div className="cta-main-content">
-            <h2 className="cta-title">Let's Build Your Perfect Packaging Solution</h2>
-            <p className="cta-subtitle">From concept to delivery, our team is ready to create high-quality, reliable packaging that meets your unique needs.</p>
+          <div className="cta-content">
+            <h2 className="cta-title">
+              Request a Quote for Bulk Dairy Packaging
+            </h2>
+            <p className="cta-subtitle">
+              Tell us your capacity, printing, and quantity requirement. Our
+              team will assist with pricing, customization, and delivery
+              planning.
+            </p>
+
             <div className="cta-action-group">
-              <a 
-                href="mailto:pvnindustries.tg@gmail.com?subject=Request for Quote"
+              <button
+                onClick={() => scrollToSection("contact")}
                 className="btn btn-primary cta-button"
               >
-                <span>Get a Quote Now</span>
+                <span>Request a Quote</span>
                 <ChevronsRight size={20} />
+              </button>
+
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-whatsapp cta-button"
+              >
+                <MessageCircle size={20} />
+                <span>Chat on WhatsApp</span>
               </a>
-              <p className="cta-social-proof">Trusted by 150+ Businesses</p>
             </div>
-          </div>
-          <div className="cta-benefits-list">
-            <div className="benefit-item">
-              <div className="benefit-icon-wrapper"><Award size={28} /></div>
-              <p>Unmatched Quality</p>
-            </div>
-            <div className="benefit-item">
-              <div className="benefit-icon-wrapper"><PackageCheck size={28} /></div>
-              <p>Custom Solutions</p>
-            </div>
-            <div className="benefit-item">
-              <div className="benefit-icon-wrapper"><Truck size={28} /></div>
-              <p>Reliable Delivery</p>
-            </div>
+
+            <p className="cta-note">
+              Bulk orders, custom printing, and distributor inquiries welcome.
+            </p>
           </div>
         </div>
       </div>

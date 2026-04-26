@@ -1,130 +1,117 @@
 .cta-section {
-  background: linear-gradient(180deg, #f5f7fa, #eef2f7);
-  padding: 6rem 0;
+  background: #0f1720;
+  padding: 72px 0;
 }
 
 .cta-card {
-  background: var(--white);
-  border-radius: 24px;
-  padding: 4rem;
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 4rem;
-  align-items: center;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
-  border: 1px solid #e2e8f0;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(96, 165, 250, 0.12),
+      transparent 35%
+    ),
+    linear-gradient(135deg, #0f3f8c 0%, #0b5bb5 55%, #0a4b93 100%);
+  padding: 52px 40px;
+  border-radius: 18px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 24px 48px rgba(0, 24, 56, 0.28);
+}
+
+.cta-content {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin: 0 auto;
 }
 
 .cta-title {
-  font-size: 2.5rem;
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
   font-weight: 800;
-  color: var(--dark);
-  line-height: 1.2;
-  margin-bottom: 1rem;
+  color: #ffffff;
+  margin-bottom: 14px;
+  line-height: 1.15;
 }
 
 .cta-subtitle {
-  font-size: 1.1rem;
-  color: var(--dark-grey);
-  margin-bottom: 2.5rem;
-  max-width: 520px;
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.86);
+  max-width: 62ch;
+  margin: 0 auto 28px;
+  line-height: 1.7;
 }
 
 .cta-action-group {
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 1.5rem;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
 }
 
 .cta-button {
+  min-height: 50px;
+  padding: 14px 24px;
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 1rem 2rem;
-  font-size: 1rem;
-  font-weight: 600;
-}
-
-.cta-social-proof {
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--grey);
-}
-
-.cta-benefits-list {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  border-left: 1px solid #e2e8f0;
-  padding-left: 4rem;
-}
-
-.benefit-item {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-.benefit-icon-wrapper {
-  flex-shrink: 0;
-  width: 56px;
-  height: 56px;
-  display: flex;
-  align-items: center;
   justify-content: center;
-  background: linear-gradient(145deg, #e0f7ff, #d1edff);
-  color: var(--primary);
-  border-radius: 16px;
-  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.1);
+  gap: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 10px;
 }
 
-.benefit-item p {
-  font-weight: 600;
-  font-size: 1.05rem;
-  color: var(--dark);
+.cta-card .btn.btn-primary {
+  background: #ffffff;
+  color: #0b5bb5;
+  border: 1px solid #ffffff;
+  box-shadow: 0 10px 24px rgba(255, 255, 255, 0.14);
 }
 
-@media (max-width: 1024px) {
-  .cta-card {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-    padding: 3rem;
-  }
-  .cta-benefits-list {
-    border-left: none;
-    padding-left: 0;
-    flex-direction: row;
-    justify-content: space-around;
-    gap: 1rem;
-  }
-  .benefit-item {
-    flex-direction: column;
-    text-align: center;
-    gap: 1rem;
-  }
+.cta-card .btn.btn-primary:hover {
+  background: #f8fafc;
+  color: #083d7a;
+}
+
+.btn-whatsapp {
+  background: rgba(37, 211, 102, 0.14);
+  color: #ffffff;
+  border: 1px solid rgba(37, 211, 102, 0.55);
+}
+
+.btn-whatsapp:hover {
+  background: rgba(37, 211, 102, 0.22);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.cta-note {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0;
 }
 
 @media (max-width: 768px) {
   .cta-section {
-    padding: 4rem 0;
+    padding: 56px 0;
   }
+
   .cta-card {
-    padding: 2.5rem 2rem;
+    padding: 40px 22px;
   }
-  .cta-title {
-    font-size: 2rem;
-  }
+
   .cta-action-group {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
   }
-  .cta-benefits-list {
-    flex-direction: column;
-    align-items: flex-start;
+
+  .cta-button {
+    width: 100%;
   }
-  .benefit-item {
-    flex-direction: row;
-    text-align: left;
+
+  .cta-subtitle {
+    font-size: 1rem;
   }
 }
