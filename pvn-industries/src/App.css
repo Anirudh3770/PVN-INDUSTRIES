@@ -20,9 +20,7 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+
 
 body {
   font-family:
@@ -47,8 +45,6 @@ body {
 
 .section {
   padding: 4rem 0;
-  content-visibility: auto;
-  contain-intrinsic-size: 600px;
 }
 
 .section-header {

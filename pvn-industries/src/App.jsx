@@ -115,39 +115,40 @@ const App = () => {
           </div>
 
           <div className="desktop-menu">
-            <Link to="home" smooth={true} duration={500} role="button">
+            <Link to="home" smooth={true} duration={500} offset={-80} role="button">
               Home
             </Link>
-            <Link to="products" smooth={true} duration={500} role="button">
+            <Link to="products" smooth={true} duration={500} offset={-80} role="button">
               Products
             </Link>
-            <Link to="journey" smooth={true} duration={500} role="button">
+            <Link to="journey" smooth={true} duration={500} offset={-80} role="button">
               Our Journey
             </Link>
-            <Link to="specs" smooth={true} duration={500} role="button">
+            <Link to="specs" smooth={true} duration={500} offset={-80} role="button">
               Specs
             </Link>
-            <Link to="technology" smooth={true} duration={500} role="button">
+            <Link to="technology" smooth={true} duration={500} offset={-80} role="button">
               Technology
             </Link>
-            <Link to="about" smooth={true} duration={500} role="button">
+            <Link to="about" smooth={true} duration={500} offset={-80} role="button">
               About
             </Link>
             <Link
               to="infrastructure"
               smooth={true}
               duration={500}
+              offset={-80}
               role="button"
             >
               Gallery
             </Link>
-            <Link to="faq" smooth={true} duration={500} role="button">
+            <Link to="faq" smooth={true} duration={500} offset={-80} role="button">
               FAQ
             </Link>
-            <Link to="clients" smooth={true} duration={500} role="button">
+            <Link to="clients" smooth={true} duration={500} offset={-80} role="button">
               Clients
             </Link>
-            <Link to="contact" smooth={true} duration={500} role="button">
+            <Link to="contact" smooth={true} duration={500} offset={-80} role="button">
               Contact
             </Link>
           </div>
@@ -163,6 +164,7 @@ const App = () => {
               to="home"
               smooth={true}
               duration={500}
+              offset={-70}
               onClick={handleLinkClick}
               role="button"
             >
@@ -172,6 +174,7 @@ const App = () => {
               to="products"
               smooth={true}
               duration={500}
+              offset={-70}
               onClick={handleLinkClick}
               role="button"
             >
@@ -181,6 +184,7 @@ const App = () => {
               to="journey"
               smooth={true}
               duration={500}
+              offset={-70}
               onClick={handleLinkClick}
               role="button"
             >
@@ -190,6 +194,7 @@ const App = () => {
               to="about"
               smooth={true}
               duration={500}
+              offset={-70}
               onClick={handleLinkClick}
               role="button"
             >
@@ -199,6 +204,7 @@ const App = () => {
               to="specs"
               smooth={true}
               duration={500}
+              offset={-70}
               onClick={handleLinkClick}
               role="button"
             >
@@ -208,6 +214,7 @@ const App = () => {
               to="technology"
               smooth={true}
               duration={500}
+              offset={-70}
               onClick={handleLinkClick}
               role="button"
             >
@@ -217,6 +224,7 @@ const App = () => {
               to="infrastructure"
               smooth={true}
               duration={500}
+              offset={-70}
               onClick={handleLinkClick}
               role="button"
             >
@@ -226,6 +234,7 @@ const App = () => {
               to="faq"
               smooth={true}
               duration={500}
+              offset={-70}
               onClick={handleLinkClick}
               role="button"
             >
@@ -235,6 +244,7 @@ const App = () => {
               to="clients"
               smooth={true}
               duration={500}
+              offset={-70}
               onClick={handleLinkClick}
               role="button"
             >
@@ -244,6 +254,7 @@ const App = () => {
               to="contact"
               smooth={true}
               duration={500}
+              offset={-70}
               onClick={handleLinkClick}
               role="button"
             >
